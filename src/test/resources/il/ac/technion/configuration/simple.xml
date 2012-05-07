@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<experiment>
+	<hosts>
+		<host>
+			<storage>5</storage>
+			<ram>5</ram>
+			<count>2</count>
+		</host>
+		<host>
+			<storage>10</storage>
+			<ram>20</ram>
+			<count>3</count>
+		</host>
+	</hosts>
+	<images>
+		<image>
+			<id>1</id>
+			<description>Ubuntu 12.04 LTS 32bit</description>
+			<size>4</size>
+		</image>
+	</images>
+	<vms>
+		<vm>
+			<image>1</image>
+			<ram>2</ram>
+			<count>3</count>
+		</vm>
+	</vms>
+</experiment>
