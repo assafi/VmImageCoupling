@@ -34,8 +34,27 @@ public class Host {
 		this.storageCapacity = imageCapacity;
 	}
 
+	public int availableRAM() {
+		return ramCapacity - totalMemSize;
+	}
+	
+	public int availableStorage() {
+		return storageCapacity - totalStorage;
+	}
+	
+	public boolean add(Image im) {
+		if (!canAdd(im)) {
+			return false;
+		}
+		
+		images.put(im, 0);
+		imageVms.put(im, new ArrayList<VM>(totalMemSize));
+		totalStorage += im.size;
+		return true;
+	}
+	
 	public boolean add(VM vm) {
-		if (ramCapacity < vm.ram + totalMemSize) {
+		if (availableRAM() < vm.ram) {
 			return false;
 		}
 
@@ -47,7 +66,7 @@ public class Host {
 			return true;
 		}
 
-		if (storageCapacity < vm.image.size + totalStorage) {
+		if (availableStorage() < vm.image.size) {
 			return false;
 		}
 
@@ -96,7 +115,7 @@ public class Host {
 	}
 
 	public boolean canAdd(VM vm) {
-		if (ramCapacity < vm.ram + totalMemSize) {
+		if (availableRAM() < vm.ram ) {
 			return false;
 		}
 
@@ -107,9 +126,13 @@ public class Host {
 	}
 
 	public boolean canAdd(Image im) {
-		return totalStorage < im.size + totalStorage;
+		return availableStorage() < im.size;
 	}
 
+	public boolean colocated(VM vm) {
+		return images.containsKey(vm.image);
+	}
+	
 	public String description() {
 		StringBuilder dd = new StringBuilder(summary() + " VMs: ");
 		for (VM vm : vms) {

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<experiment>
+	<hosts>
+		<host>
+			<storage>2</storage>
+			<ram>5</ram>
+			<count>1</count>
+		</host>
+	</hosts>
+	<images>
+		<image>
+			<id>1</id>
+			<description>Ubuntu 12.04 LTS 32bit</description>
+			<size>1</size>
+		</image>
+		<image>
+			<id>2</id>
+			<description>Ubuntu 12.04 LTS 32bit</description>
+			<size>1</size>
+		</image>
+		<image>
+			<id>3</id>
+			<description>Ubuntu 12.04 LTS 32bit</description>
+			<size>1</size>
+		</image>
+	</images>
+	<vms>
+		<vm>
+			<image>1</image>
+			<ram>1</ram>
+			<count>3</count>
+		</vm>
+		<vm>
+			<image>2</image>
+			<ram>1</ram>
+			<count>3</count>
+		</vm>
+		<vm>
+			<image>3</image>
+			<ram>1</ram>
+			<count>3</count>
+		</vm>
+	</vms>
+</experiment>

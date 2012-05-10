@@ -11,8 +11,10 @@ import il.ac.technion.beans.VM;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -231,5 +233,16 @@ public class Configuration {
 	 */
 	public List<VM> getVms() {
 		return vms;
+	}
+	
+	public Map<Image,List<VM>> getImageMap() {
+		Map<Image,List<VM>> $ = new HashMap<Image, List<VM>>();
+		for (Image im : images) {
+			$.put(im, new LinkedList<VM>());
+		}
+		for (VM vm : vms) {
+			$.get(vm.image).add(vm);
+		}
+		return $;
 	}
 }

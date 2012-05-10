@@ -5,9 +5,10 @@
  */
 package il.ac.technion.beans;
 
+import il.ac.technion.data_extraction.Itemable;
 import il.ac.technion.misc.HashCodeUtil;
 
-public class VM {
+public class VM implements Itemable {
 
 	public final int id;
 	public final Image image;
@@ -52,5 +53,13 @@ public class VM {
 	@Override
 	public String toString() {
 		return "VM #" + id;
+	}
+
+	public int size() {
+		return ram;
+	}
+
+	public double value(Host host) {
+		return host.colocated(this) ? 1.0 : 0.0;
 	}
 }
