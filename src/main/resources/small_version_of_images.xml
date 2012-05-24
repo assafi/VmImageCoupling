@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<results>
+	<result xmlns="http://jibx.org/CloudManagerRESTResult">
+		<status>success</status>
+		<data>
+			<image>
+				<id>pok1img-3834.0</id>
+				<status>available</status>
+				<owner>sreuland@us.ibm.com</owner>
+				<created>2011-02-13 23:25:27 EST</created>
+				<name>DIRDB-RHEL5.5_x64-DB2 9.7 fp3a-medium -Good for ISD DB2
+					testing</name>
+				<description>Use for ISD testing with DB2. A DB2 9.7 fp3a server is
+					installed on the image. Config scripts are provided with
+					instructions in /db2Config (READTHIS file). Use getbuild in
+					/db2Config to get an ISD driver.</description>
+				<visibility>public</visibility>
+				<method>captured</method>
+				<platform>x86_kvm</platform>
+				<size>39739301197</size>
+				<serial>com.ibm.mirage.sha1id.properties/0b930f918e92367940e5e20f3abd8c1ae8a56db6
+				</serial>
+				<derivedfrom>pok1img-3825.0</derivedfrom>
+				<attributes>{minmem=512MB, defaultmem=2GB, defaultdisksize=36GB,
+					defaultcpu=2, mincpu=1, maxcpu=8, dynamocapable=true, maxmem=8GB}
+				</attributes>
+			</image>
+		</data>
+	</result>
+	<result xmlns="http://jibx.org/CloudManagerRESTResult">
+		<status>success</status>
+		<data>
+			<image>
+				<id>pok1img-7119.0</id>
+				<status>available</status>
+				<owner>whaom@cn.ibm.com</owner>
+				<created>2011-08-04 21:39:11 EDT</created>
+				<name>Director 6.2.1.2 (75A GM - RHEL 5.5 JDK - Medium) 8-4-2011
+					21:44:42 8-5-2011 9:33:15</name>
+				<description>With JDK</description>
+				<visibility>public</visibility>
+				<method>captured</method>
+				<platform>x86_kvm</platform>
+				<size>39739301197</size>
+				<serial>com.ibm.mirage.sha1id.properties/4fcc14b4bf638302367458b86ea63aaa1a456ed8
+				</serial>
+				<derivedfrom>pok1img-5698.0</derivedfrom>
+				<attributes>{minmem=512MB, defaultmem=2GB, defaultdisksize=36GB,
+					defaultcpu=2, mincpu=1, maxcpu=8, dynamocapable=true, maxmem=8GB}
+				</attributes>
+			</image>
+		</data>
+	</result>
+	<result xmlns="http://jibx.org/CloudManagerRESTResult">
+		<status>success</status>
+		<data>
+			<image>
+				<id>pok1img-2770.0</id>
+				<status>available</status>
+				<owner>gaojzhe@cn.ibm.com</owner>
+				<created>2010-10-17 23:08:44 EDT</created>
+				<name>Image_Jomo_Was_Nd_v70_Node_v04 10-18-2010 11:06:04</name>
+				<description></description>
+				<visibility>public</visibility>
+				<method>captured</method>
+				<platform>x86_kvm</platform>
+				<size>38655755391</size>
+				<serial>com.ibm.mirage.sha1id.properties/05f6a07ef5ff6d988f24d80d4f7d7103fccf4c2f
+				</serial>
+				<derivedfrom>pok1img-2753.0</derivedfrom>
+				<attributes>{minmem=512MB, defaultmem=2GB, defaultdisksize=36GB,
+					defaultcpu=2, mincpu=1, maxcpu=8, dynamocapable=true, maxmem=8GB}
+				</attributes>
+			</image>
+		</data>
+	</result>
+</results>

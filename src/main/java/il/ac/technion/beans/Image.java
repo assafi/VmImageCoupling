@@ -7,15 +7,20 @@ package il.ac.technion.beans;
 
 import il.ac.technion.misc.HashCodeUtil;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Image {
 
-	public final int id;
+	public final String id;
 	public final int size;
 	public final String description;
+	
+	private Set<Host> replicaLocations = new HashSet<Host>();
 
 	private int fHashCode = 0;
 
-	public Image(int id, int size, String desc) {
+	public Image(String id, int size, String desc) {
 		this.id = id;
 		this.size = size;
 		this.description = desc;
@@ -42,7 +47,7 @@ public class Image {
 			return false;
 
 		Image img = (Image) obj;
-		return img.id == id && img.size == size && img.description == description;
+		return img.id.equals(id) && img.size == size && img.description.equals(description);
 	}
 	
 	public String description() {
@@ -56,5 +61,17 @@ public class Image {
 	@Override
 	public String toString() {
 		return "Image #" + id;
+	}
+
+	public void addedTo(Host host) {
+		replicaLocations.add(host);
+	}
+
+	public void removedFrom(Host host) {
+		replicaLocations.remove(host);
+	}
+	
+	public int numReplicas() {
+		return replicaLocations.size();
 	}
 }

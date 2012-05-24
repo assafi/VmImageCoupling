@@ -11,7 +11,6 @@ import il.ac.technion.beans.VM;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -32,28 +31,22 @@ public class TDVP {
 		int[][][] data_bt;
 	}
 	
-	private class Solution {
-		int profit;
-		Set<Integer> ids = new HashSet<Integer>(); 
+	public class Solution {
+		public int profit;
+		public Set<Integer> ids = new HashSet<Integer>(); 
 	}
 	
-	public Map<Image, List<VM>> solve(int V, int C, Map<Image, List<VM>> im2vms) {
+	public Solution solve(int V, int C, int[][] vmSz, int[][] vmPr, int[] imSz, int[] imVmCount, int[][] ids) {
+		int Max_Nk = maxValue(imVmCount);
 		int P = V; // This should be changed in the case of general cost functions
-		int Max_Nk = maxVmList(im2vms.values());
-		int M = im2vms.keySet().size();
+		int M = imVmCount.length;
 
-		int[][] vmSz = vmSizes(M, Max_Nk, im2vms);
-		int[][] vmPr = vmProfits(M, Max_Nk, im2vms); 
-		int[] imSz = imageSizes(im2vms.keySet());
-		int[] imVmCount = imageVmsCount(im2vms);
-		int[][] ids = vmIds(M,Max_Nk,im2vms);
-		
 		Data_Pack hp = buildH(P, Max_Nk,M,imVmCount,ids,vmSz,	vmPr);
 		Data_Pack fp = buildF(hp.data, M, P, C, imSz,imVmCount);
 		
 		Solution sol = extractOptimum(fp,hp,M,P,C,V,imVmCount,imSz,vmPr);
 		log.debug("Solution profit: " + sol.profit);
-		return solutionToMap(sol,im2vms);
+		return sol;
 	}
 
 	/**
@@ -121,8 +114,8 @@ public class TDVP {
 	 *         the items is <code>a</code>.
 	 */
 	private Data_Pack buildF(int[][][] H, int M, int P, int C, int[] c, int[] n) {
-		int[][][] F = new int[M][P + 1][C];
-		int[][][] F_bt = new int[M][P + 1][C];
+		int[][][] F = new int[M][P + 1][C + 1];
+		int[][][] F_bt = new int[M][P + 1][C + 1];
 		
 		Data_Pack fp = new Data_Pack();
 		fp.data = F;
@@ -130,7 +123,7 @@ public class TDVP {
 		
 		for (int k = 0; k < M; k++) {
 			for (int a = 0; a <= P; a++) {
-				for (int l = 0; l < C; l++) {
+				for (int l = 0; l <= C; l++) {
 					F[k][a][l] = f(F, k - 1, a, l);
 					for (int a_prime = 1; a_prime <= a; a_prime++) {
 						if (f(F, k - 1, a - a_prime, l - c[k]) == Integer.MAX_VALUE || h(H,k,n[k]-1,a_prime) == Integer.MAX_VALUE) {
@@ -148,80 +141,30 @@ public class TDVP {
 	}
 
 	private int f(int[][][] F, int k, int a, int l) {
-		if (a == 0 && l == -1)
-			return 0;
-		if (k == -1 || l < 0)
+		if (k == -1 || a <= 0 || l <= 0) {
+			if (a == 0 && l == 0) {
+				return 0;
+			}
 			return Integer.MAX_VALUE;
+		}
 		return F[k][a][l];
 	}
 
-	private int maxVmList(Collection<List<VM>> values) {
+	private int maxValue(int[] n_ks) {
 		int max = 0;
-		for (List<VM> list : values) {
-			max = Math.max(max, list.size());
+		for (int n_k : n_ks) {
+			max = Math.max(max, n_k);
 		}
 		return max;
 	}
 
-	private int[][] vmIds(int M, int max_Nk, Map<Image, List<VM>> im2vms) {
-		int[][] ids = new int[M][max_Nk];
-		Iterator<Image> iter = im2vms.keySet().iterator();
-		for (int k = 0; k < M; k++) {
-			Image im = iter.next();
-			for (int r = 0; r < im2vms.get(im).size(); r++) {
-				ids[k][r] = im2vms.get(im).get(r).id;
-			}
-		}
-		return ids;
-	}
-	
-	private int[][] vmSizes(int M, int max_Nk, Map<Image, List<VM>> im2vms) {
-		int[][] sizes = new int[M][max_Nk];
-		Iterator<Image> iter = im2vms.keySet().iterator();
-		for (int k = 0; k < M; k++) {
-			Image im = iter.next();
-			for (int r = 0; r < im2vms.get(im).size(); r++) {
-				sizes[k][r] = im2vms.get(im).get(r).size();
-			}
-		}
-		return sizes;
-	}
-
-	private int[][] vmProfits(int M, int max_Nk, Map<Image, List<VM>> im2vms) {
-		int[][] profits = new int[M][max_Nk];
-		for (int k = 0; k < M; k++) {
-			for (int r = 0; r < max_Nk; r++) {
-				profits[k][r] = 1; // Profit == # VMs in Knapsack
-			}
-		}
-		return profits;
-	}
-
-	private int[] imageSizes(Set<Image> images) {
-		int[] sizes = new int[images.size()];
-		Iterator<Image> iter = images.iterator();
-		for (int i = 0; i < sizes.length; i++) {
-			sizes[i] = iter.next().size;
-		}
-		return sizes;
-	}
-
-	private int[] imageVmsCount(Map<Image, List<VM>> im2vms) {
-		int[] vmCounts = new int[im2vms.keySet().size()];
-		Iterator<Image> iter = im2vms.keySet().iterator();
-		for (int i = 0; i < vmCounts.length; i++) {
-			vmCounts[i] = im2vms.get(iter.next()).size();
-		}
-		return vmCounts;
-	}
-	
 	private Solution extractOptimum(Data_Pack fp, Data_Pack hp, int M, int P, int C, int V, int[] imVmCount, int[] imSz, int[][] vmPr) {
 		int[][][] F = fp.data;
 		
 		for (int a = P; a >= 0; a--) {
-			for (int l = 0; l < C; l++) {
+			for (int l = 0; l <= C; l++) {
 				if (F[M - 1][a][l] <= V) {
-					log.debug("Opt value: " + a + ", using " + (l+1) + " compartments");
+					log.debug("Opt value: " + a + ", using " + (l) + " compartments");
 					return buildSolution(fp,hp,M-1,a,l,imVmCount,imSz,vmPr);
 				}
 			}
@@ -229,6 +172,7 @@ public class TDVP {
 		return new Solution();
 	}
 
+	@SuppressWarnings("unused")
 	private void printTable(int[][][] data) {
 		for (int[][] is : data) {
 			System.out.println("-------");

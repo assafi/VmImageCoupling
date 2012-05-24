@@ -11,10 +11,12 @@ import il.ac.technion.beans.VM;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -37,6 +39,11 @@ public class Configuration {
 	private List<Host> hosts;
 	private List<Image> images;
 	private List<VM> vms;
+	
+	private int totalImgSize = 0;
+	private int totalHostStorage = 0;
+
+	private Random random = new Random(System.currentTimeMillis());
 
 	public Configuration(String setupFilePath) throws IOException,
 			ConfigurationException {
@@ -74,6 +81,19 @@ public class Configuration {
 		hosts = getHosts(doc, xpath);
 		images = getImages(doc, xpath);
 		vms = getVMs(doc, xpath);
+		
+		filterUnusedImages();
+	}
+
+	private void filterUnusedImages() {
+		List<Image> blackList = new ArrayList<Image>(images);
+		for (VM vm : vms) {
+			blackList.remove(vm.image);
+		}
+		for (Image image : blackList) {
+			images.remove(image);
+			totalImgSize -= image.size;
+		}
 	}
 
 	private List<Host> getHosts(Document doc, XPath xpath)
@@ -94,11 +114,15 @@ public class Configuration {
 				for (int j = 0; j < count; j++) {
 					$.add(new Host(hostId++, ramCapacity, storageCapacity));
 				}
+				
+				totalHostStorage += count * storageCapacity;
 			}
 
 		} catch (XPathExpressionException e) {
 			throw new ConfigurationException(e);
 		}
+		
+		System.out.println("Total Host storage: " + totalHostStorage);
 		return $;
 	}
 
@@ -112,19 +136,28 @@ public class Configuration {
 
 			for (int i = 0; i < nl.getLength(); i++) {
 				Node rNode = nl.item(i);
-				int imgId = getIntFromNode("id", rNode);
+				String imgId = getStringFromNode("id", rNode);
 				String desc = getStringFromNode("description", rNode);
-				int size = getIntFromNode("size", rNode);
+				long size = getLongFromNode("size", rNode);
+				String unit = getAttributeFromNode("size", "unit", rNode);
 
-				if (null != findImageById(imgId,$))
+				if ("bytes".equals(unit)) {
+					size >>= 30;
+				}
+
+				if (null != findImageById(imgId, $))
 					throw new ConfigurationException(
 							"Can't have two images with the same ID [" + imgId + "]");
-				$.add(new Image(imgId, size, desc));
+				$.add(new Image(imgId, (int) size, desc));
+				
+				totalImgSize += size;
 			}
 
 		} catch (XPathExpressionException e) {
 			throw new ConfigurationException(e);
 		}
+		
+		System.out.println("Total Image size: " + totalImgSize);
 		return $;
 	}
 
@@ -139,15 +172,21 @@ public class Configuration {
 
 			for (int i = 0; i < nl.getLength(); i++) {
 				Node rNode = nl.item(i);
-				int imageId = getIntFromNode("image", rNode);
-				Image img = findImageById(imageId, images);
-				if (img == null) {
-					throw new ConfigurationException("Invalid image id: " + imageId);
+				String imageType = getAttributeFromNode("image", "type", rNode);
+				Image img = null;
+				if ("".equals(imageType)) {
+					String imageId = getStringFromNode("image", rNode);
+					img = findImageById(imageId, images);
+				} else if (!"random".equals(imageType)) {
+					throw new ConfigurationException("Invalid image id or type");
 				}
 				int ram = getIntFromNode("ram", rNode);
 				int count = getIntFromNode("count", rNode);
 
 				for (int j = 0; j < count; j++) {
+					if ("random".equals(imageType)) {
+						img = randomImage();
+					}
 					$.add(new VM(vmId++, img, ram));
 				}
 			}
@@ -158,9 +197,14 @@ public class Configuration {
 		return $;
 	}
 
-	private static Image findImageById(int imageId, List<Image> images) {
+	private Image randomImage() {
+		int imageOrdinal = random.nextInt(images.size());
+		return images.get(imageOrdinal);
+	}
+
+	private static Image findImageById(String imageId, List<Image> images) {
 		for (Image img : images) {
-			if (img.id == imageId) {
+			if (img.id.equals(imageId)) {
 				return img;
 			}
 		}
@@ -189,11 +233,42 @@ public class Configuration {
 				try {
 					return Integer.parseInt(n.getTextContent());
 				} catch (NumberFormatException nfe) {
-					throw new ConfigurationException("Bad double", nfe);
+					throw new ConfigurationException("Bad integer", nfe);
 				}
 			}
 		}
 		throw new ConfigurationException("Invalid config file - missing " + tag
+				+ " tag");
+	}
+
+	private String getAttributeFromNode(String node, String attr, Node rNode) {
+		NodeList nl = rNode.getChildNodes();
+		for (int i = 0; i < nl.getLength(); i++) {
+			Node n = nl.item(i);
+			if (n.getNodeName() == node
+					&& n.getAttributes().getNamedItem(attr) != null) {
+				return n.getAttributes().getNamedItem(attr).getNodeValue();
+			}
+		}
+
+		return "";
+	}
+
+	private long getLongFromNode(String node, Node rNode)
+			throws ConfigurationException {
+		NodeList nl = rNode.getChildNodes();
+		for (int i = 0; i < nl.getLength(); i++) {
+			Node n = nl.item(i);
+			if (n.getNodeName() == node) {
+				try {
+					return Long.parseLong(n.getTextContent());
+				} catch (NumberFormatException nfe) {
+					throw new ConfigurationException("Bad long", nfe);
+				}
+			}
+		}
+
+		throw new ConfigurationException("Invalid config file - missing " + node
 				+ " tag");
 	}
 
@@ -234,9 +309,17 @@ public class Configuration {
 	public List<VM> getVms() {
 		return vms;
 	}
-	
-	public Map<Image,List<VM>> getImageMap() {
-		Map<Image,List<VM>> $ = new HashMap<Image, List<VM>>();
+
+	public Map<Integer, VM> getId2VmMap() {
+		Map<Integer, VM> $ = new HashMap<Integer, VM>();
+		for (VM vm : vms) {
+			$.put(vm.id, vm);
+		}
+		return $;
+	}
+
+	public Map<Image, List<VM>> getImageMap() {
+		Map<Image, List<VM>> $ = new HashMap<Image, List<VM>>();
 		for (Image im : images) {
 			$.put(im, new LinkedList<VM>());
 		}

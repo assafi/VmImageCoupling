@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><experiment xmlns:jib="http://jibx.org/CloudManagerRESTResult">
+<hosts>
+<host>
+<storage>5</storage>
+<ram>30</ram>
+<count>30</count>
+</host>
+<host>
+<storage>5</storage>
+<ram>62</ram>
+<count>94</count>
+</host>
+<host>
+<storage>5</storage>
+<ram>126</ram>
+<count>11</count>
+</host>
+<host>
+<storage>5</storage>
+<ram>254</ram>
+<count>2</count>
+</host>
+</hosts>
+<images>
+<image>
+<id>pok1img-3834.0</id>
+<description>DIRDB-RHEL5.5_x64-DB2 9.7 fp3a-medium -Good for ISD DB2
+					testing</description>
+<size unit="bytes">39739301197</size>
+</image>
+<image>
+<id>pok1img-7119.0</id>
+<description>Director 6.2.1.2 (75A GM - RHEL 5.5 JDK - Medium) 8-4-2011
+					21:44:42 8-5-2011 9:33:15</description>
+<size unit="bytes">39739301197</size>
+</image>
+<image>
+<id>pok1img-2770.0</id>
+<description>Image_Jomo_Was_Nd_v70_Node_v04 10-18-2010 11:06:04</description>
+<size unit="bytes">38655755391</size>
+</image>
+</images>
+<vms>
+<vm>
+<image>1</image>
+<ram>1</ram>
+<count>177</count>
+</vm>
+<vm>
+<image>2</image>
+<ram>2</ram>
+<count>643</count>
+</vm>
+<vm>
+<image>3</image>
+<ram>6</ram>
+<count>920</count>
+</vm>
+</vms>
+</experiment>

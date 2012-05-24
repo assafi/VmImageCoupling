@@ -6,18 +6,24 @@
 package il.ac.technion.configuration;
 
 
-import il.ac.technion.configuration.Configuration;
-import il.ac.technion.configuration.ConfigurationException;
-
 import java.io.IOException;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class TestConfiguration {
 
+	@Ignore
 	@Test
 	public void testSimpleConfiguration() throws IOException, ConfigurationException {
 		String simpleConfigFile = getClass().getResource("simple.xml").getPath();
+		Configuration conf = new Configuration(simpleConfigFile);
+		System.out.println(conf);
+	}
+	
+	@Test
+	public void testRc2() throws IOException, ConfigurationException {
+		String simpleConfigFile = getClass().getResource("rc2_extended.xml").getPath();
 		Configuration conf = new Configuration(simpleConfigFile);
 		System.out.println(conf);
 	}

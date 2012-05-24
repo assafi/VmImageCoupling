@@ -8,6 +8,7 @@ package il.ac.technion.beans;
 import il.ac.technion.misc.HashCodeUtil;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -42,7 +43,16 @@ public class Host {
 		return storageCapacity - totalStorage;
 	}
 	
+	public int numVMs() {
+		return vms.size();
+	}
+	
+	public int numImages() {
+		return images.keySet().size();
+	}
 	public boolean add(Image im) {
+		if (images.containsKey(im)) return true;
+		
 		if (!canAdd(im)) {
 			return false;
 		}
@@ -50,33 +60,23 @@ public class Host {
 		images.put(im, 0);
 		imageVms.put(im, new ArrayList<VM>(totalMemSize));
 		totalStorage += im.size;
+		im.addedTo(this);
 		return true;
 	}
 	
 	public boolean add(VM vm) {
-		if (availableRAM() < vm.ram) {
-			return false;
-		}
-
-		if (images.containsKey(vm.image)) {
-			vms.add(vm);
-			images.put(vm.image, images.get(vm.image) + 1);
-			imageVms.get(vm.image).add(vm);
-			totalMemSize += vm.ram;
+		if (vms.contains(vm.id)) {
 			return true;
 		}
-
-		if (availableStorage() < vm.image.size) {
+		
+		if (availableRAM() < vm.ram || !add(vm.image)) {
 			return false;
 		}
-
-		images.put(vm.image, 1);
-		List<VM> imVms = new ArrayList<VM>(ramCapacity);
-		imVms.add(vm);
-		imageVms.put(vm.image, imVms);
+		
+		images.put(vm.image, images.get(vm.image) + 1);
+		imageVms.get(vm.image).add(vm);
 		vms.add(vm);
 		totalMemSize += vm.ram;
-		totalStorage += vm.image.size;
 		return true;
 	}
 
@@ -92,6 +92,7 @@ public class Host {
 			vms.remove(vm);
 		}
 		totalStorage -= im.size;
+		im.removedFrom(this);
 		return $;
 	}
 
@@ -114,6 +115,23 @@ public class Host {
 		return true;
 	}
 
+	public Collection<Image> images() {
+		return images.keySet();
+	}
+	
+	public Collection<VM> vms() {
+		return vms;
+	}
+	
+	public Map<Image, List<VM>> assignment() {
+		Map<Image, List<VM>> $ = new HashMap<Image, List<VM>>();
+		for (Image im : imageVms.keySet()) {
+			List<VM> l = new ArrayList<VM>(imageVms.get(im));
+			$.put(im, l);
+		}
+		return $;
+	}
+	
 	public boolean canAdd(VM vm) {
 		if (availableRAM() < vm.ram ) {
 			return false;
@@ -126,7 +144,7 @@ public class Host {
 	}
 
 	public boolean canAdd(Image im) {
-		return availableStorage() < im.size;
+		return availableStorage() >= im.size;
 	}
 
 	public boolean colocated(VM vm) {
@@ -137,6 +155,10 @@ public class Host {
 		StringBuilder dd = new StringBuilder(summary() + " VMs: ");
 		for (VM vm : vms) {
 			dd.append(vm + " ");
+		}
+		dd.append(", Images: ");
+		for (Image im : images.keySet()) {
+			dd.append("Im #" + im.id + " ");
 		}
 		return dd.toString();
 	}
@@ -179,5 +201,19 @@ public class Host {
 		return aHost.id == id && aHost.ramCapacity == ramCapacity && 
 			aHost.storageCapacity == storageCapacity && 
 			aHost.images.equals(images) && aHost.vms.equals(vms);
+	}
+
+	public boolean contains(Image im) {
+		return images.containsKey(im);
+	}
+	
+	public boolean contains(VM vm) {
+		return vms.contains(vm);
+	}
+
+	public void reset() {
+		while (!images.isEmpty()) {
+			remove(images.keySet().iterator().next());
+		}
 	}
 }
