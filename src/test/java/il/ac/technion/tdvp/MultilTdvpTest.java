@@ -32,6 +32,7 @@ public class MultilTdvpTest {
 	
 	private MultiTDVP mtdvp = new MultiTDVP();
 	
+	
 	@Test
 	public void multiTest() throws IOException, ConfigurationException {
 		String confFilePath = MultilTdvpTest.class.getResource("multi_tdvp.xml").getPath();
@@ -40,6 +41,8 @@ public class MultilTdvpTest {
 		for (Host host : hosts) {
 			logger.info(host.description());
 		}
+		Assert.assertEquals(7, hosts.get(0).numVMs());
+		Assert.assertEquals(4, hosts.get(1).numVMs());
 	}
 
 	@Test 
@@ -51,8 +54,8 @@ public class MultilTdvpTest {
 			logger.info(host.description());
 		}
 		
-		Assert.assertEquals(0, hosts.get(0).storageCapacity - hosts.get(0).availableStorage());
-		Assert.assertEquals(2, hosts.get(1).storageCapacity - hosts.get(1).availableStorage());
+		Assert.assertEquals(10, hosts.get(0).numVMs());
+		Assert.assertEquals(6, hosts.get(1).numVMs());
 	}
 	
 	private List<Host> runAndAssign(Configuration conf) {

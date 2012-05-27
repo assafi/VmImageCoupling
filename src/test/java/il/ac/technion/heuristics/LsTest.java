@@ -46,10 +46,15 @@ public class LsTest {
 		runTest("rc2_extended_small.xml");
 	}
 
-//	@Ignore
+	@Ignore
 	@Test
 	public void rc2Test() throws IOException, ConfigurationException {
 		runTest("rc2_extended.xml");
+	}
+	
+	@Test
+	public void rc2300sTest() throws IOException, ConfigurationException {
+		runTest("rc2_extended_300s.xml");
 	}
 	
 	private void runTest(String fileName) throws IOException, ConfigurationException {

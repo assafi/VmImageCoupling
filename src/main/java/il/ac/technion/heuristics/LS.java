@@ -17,6 +17,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -68,32 +69,57 @@ public class LS {
 		int[][] vmPr = CouplingUtils.vmProfits(M, max_Nk, im2vms);
 		int[][] ids = CouplingUtils.vmIds(M, max_Nk, images, im2vms);
 		MtdvpSolution sol = mtdvp.solve(vArr, cArr, vmSz, vmPr, imSz, imVmCount, ids);
-		assignSolution(sol.assignments,hosts,vms);
+		assignSolution(sol.assignments,hosts,vms,im2vms);
 	}
-	
+
+	//todo: hosts should be an ArrayList
 	private void phase3(List<Host> hosts, List<Image> images, Map<Image, List<VM>> im2vms, Map<Integer, VM> id2vmMap) {
 		boolean changed = !im2vms.isEmpty(); // If all VMs have been placed we've reached the optimum
 		while (changed) {
 			changed = false;
 			Host maxHost1 = null, maxHost2 = null;
 			MtdvpSolution maxSolution = null;
+			DiffCache cache = new DiffCache(hosts.size());
+			int maxI = -1, maxJ = -1;
 			int maxDiff = 0;
-			for (Host host1 : hosts) {
-				for (Host host2 : hosts) {
-					if (host1 == host2) continue;
+			for (int i = 0; i < hosts.size(); i++) {
+				Host host1 = hosts.get(i);
+				for (int j = i + 1; j < hosts.size(); j++) {
+					Host host2 = hosts.get(j);
 					int base = host1.numVMs() + host2.numVMs();
-					MtdvpSolution solution = calcImprovement(host1,host2,images,im2vms);
-					if (solution.profit - base > (maxSolution == null ? 0 : maxDiff)) {
-						maxSolution = solution;
-						maxHost1 = host1;
-						maxHost2 = host2;
-						maxDiff = solution.profit - base;
-						changed = true; 
+					if (cache.validEntry(i, j)) {
+						int cachedDiff = cache.getEntry(i, j);
+						if (cachedDiff > (maxSolution == null ? 0 : maxDiff)) {
+							maxSolution = null;
+							maxHost1 = host1;
+							maxI = i;
+							maxHost2 = host2;
+							maxJ = j;
+							maxDiff = cachedDiff;
+							changed = true;
+						}
+					} else {
+						MtdvpSolution solution = calcImprovement(host1,host2,images,im2vms);
+						cache.updateCache(i, j, solution.profit - base);
+						if (solution.profit - base > (maxSolution == null ? 0 : maxDiff)) {
+							maxSolution = solution;
+							maxHost1 = host1;
+							maxI = i;
+							maxHost2 = host2;
+							maxJ = j;
+							maxDiff = solution.profit - base;
+							changed = true; 
+						}
 					}
 				}
 			}
 			if (changed) {
+				System.out.println(maxDiff);
+				if (maxSolution == null) {
+					maxSolution = calcImprovement(maxHost1,maxHost2,images,im2vms);
+				}
 				assignImprovement(maxHost1,maxHost2,maxSolution, id2vmMap);
+				cache.invalidateEntry(maxI, maxJ);
 			}
 		}
 	}
@@ -110,6 +136,47 @@ public class LS {
 		}
 	}
 
+	private class DiffCache {
+		
+		private int[][] cache;
+		private int length;
+		
+		DiffCache(int size) {
+			this.cache = new int[size][size];
+			this.length = size;
+		}
+		
+		void updateCache(int i, int j, int value) {
+			if (i < 0 || j < 0 || i >= length || j >= length) 
+				throw new RuntimeException("Invalid cache entry [i=" + i + ",j=" + j + "]");
+			cache[i][j] = value;
+			cache[j][i] = value;
+		}
+		
+		void invalidateEntry(int i, int j) {
+			if (i < 0 || j < 0 || i >= length || j >= length) 
+				throw new RuntimeException("Invalid cache entry [i=" + i + ",j=" + j + "]");
+			for (int r = 0; r < length; r++) {
+				cache[i][r] = 0;
+				cache[j][r] = 0;
+				cache[r][i] = 0;
+				cache[r][j] = 0;
+			}
+		}
+		
+		boolean validEntry(int i, int j) {
+			if (i < 0 || j < 0 || i >= length || j >= length) 
+				throw new RuntimeException("Invalid cache entry [i=" + i + ",j=" + j + "]");
+			return cache[i][j] != 0;
+		}
+		
+		int getEntry(int i, int j) {
+			if (i < 0 || j < 0 || i >= length || j >= length) 
+				throw new RuntimeException("Invalid cache entry [i=" + i + ",j=" + j + "]");
+			return cache[i][j];
+		}
+	}
+	
 	private MtdvpSolution calcImprovement(Host host1, Host host2,
 			List<Image> images, Map<Image, List<VM>> im2vms) {
 		int k = 1; // Temp fix, will generalize later
@@ -121,6 +188,8 @@ public class LS {
 		MultiTDVP mtdvp = new MultiTDVP();
 		MtdvpSolution maxSol = null;
 		
+		updateMapByHost(host1,im2vms);
+		updateMapByHost(host2,im2vms);
 		int M = im2vms.keySet().size();
 
 		for (int i = 0; i < Math.pow(2, up2Kreplicas.size()); i++) {
@@ -152,7 +221,30 @@ public class LS {
 			}
 		}
 		
+		resetMapByHost(host2,im2vms);
+		resetMapByHost(host1,im2vms);
 		return maxSol;
+	}
+
+	private void resetMapByHost(Host host, Map<Image, List<VM>> im2vms) {
+		for (VM	vm : host.vms()) {
+			if (!im2vms.containsKey(vm.image)) {
+				continue;
+			}
+			im2vms.get(vm.image).remove(vm);
+			if (im2vms.get(vm.image).isEmpty()) {
+				im2vms.remove(vm.image);
+			}
+		}
+	}
+
+	private void updateMapByHost(Host host, Map<Image, List<VM>> im2vms) {
+		for (VM	vm : host.vms()) {
+			if (!im2vms.containsKey(vm.image)) {
+				im2vms.put(vm.image, new LinkedList<VM>());
+			}
+			im2vms.get(vm.image).add(vm);
+		}
 	}
 
 	private boolean recImgAssignment(Host clone1, Host clone2,
@@ -184,23 +276,19 @@ public class LS {
 		return max;
 	}
 	
-	private void assignSolution(Solution[] sol, List<Host> hosts, Map<Integer, VM> vms) {
+	private void assignSolution(Solution[] sol, List<Host> hosts, Map<Integer, VM> vms, Map<Image, List<VM>> im2vms) {
 		int i = 0;
 		
 		System.out.println("===== End of phase 2 =====");
 		for (Host host : hosts) {
 			for (int id : sol[i].ids) {
-				if (!host.add(vms.get(id))) {
-					System.err.println("vid - " + id);
-					System.err.println(host.description());
-					System.err.println(vms.get(id).image.summary());
-					System.err.println(vms.get(id).summary());
-					for (VM vm : vms.values()) {
-						if (vm.image.equals(vms.get(id).image)) {
-							System.err.println(vm.summary());
-						}
-					}
-//					throw new RuntimeException("Could not add vm to host");
+				VM vm = vms.get(id);
+				if (!host.add(vm)) {
+					throw new RuntimeException("Could not add vm to host");
+				}
+				im2vms.get(vm.image).remove(vm);
+				if (im2vms.get(vm.image).isEmpty()) {
+					im2vms.remove(vm.image);
 				}
 			}
 			i++;

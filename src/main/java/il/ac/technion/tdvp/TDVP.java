@@ -145,6 +145,9 @@ public class TDVP {
 			if (a == 0 && l == 0) {
 				return 0;
 			}
+			if (k >= 0 && a > 0 && l == 0) {
+				return F[k][a][l];
+			}
 			return Integer.MAX_VALUE;
 		}
 		return F[k][a][l];

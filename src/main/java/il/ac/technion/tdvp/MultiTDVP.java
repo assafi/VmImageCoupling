@@ -29,6 +29,7 @@ public class MultiTDVP {
 		for (int hid = 0; hid < vArr.length; hid++) {
 			assignments[hid] = tdvp.solve(vArr[hid], cArr[hid], vmSz, vmPr, imSz[hid], imVmCount, ids);
 			clean(vmSz, vmPr, imVmCount, ids, assignments[hid], hid);
+			System.out.println(hid);
 		}
 		return new MtdvpSolution(assignments);
 	}
