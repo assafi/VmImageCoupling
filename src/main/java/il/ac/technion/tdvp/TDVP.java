@@ -45,7 +45,7 @@ public class TDVP {
 		Data_Pack fp = buildF(hp.data, M, P, C, imSz,imVmCount);
 		
 		Solution sol = extractOptimum(fp,hp,M,P,C,V,imVmCount,imSz,vmPr);
-		log.debug("Solution profit: " + sol.profit);
+		log.trace("Solution profit: " + sol.profit);
 		return sol;
 	}
 
@@ -167,7 +167,7 @@ public class TDVP {
 		for (int a = P; a >= 0; a--) {
 			for (int l = 0; l <= C; l++) {
 				if (F[M - 1][a][l] <= V) {
-					log.debug("Opt value: " + a + ", using " + (l) + " compartments");
+					log.trace("Opt value: " + a + ", using " + (l) + " compartments");
 					return buildSolution(fp,hp,M-1,a,l,imVmCount,imSz,vmPr);
 				}
 			}
@@ -197,7 +197,7 @@ public class TDVP {
 	}
 	
 	private void recursiveF_bt(Set<Integer> ids, int[][][] F_bt, int k, int a, int l, int[][][] H_bt, int[] imVmCount,int[] imSz,int[][] vmPr) {
-		log.debug("recursive_F: k = " + k + ", l = " + l + ", a = " + a);
+		log.trace("recursive_F: k = " + k + ", l = " + l + ", a = " + a);
 		if (a < 0 || l < 0 || k < 0) return;
 		int a_prime = F_bt[k][a][l];
 		
@@ -213,7 +213,7 @@ public class TDVP {
 	}
 
 	private void recursiveH_bt(Set<Integer> ids,int[][][] H_bt, int k, int r, int a,	int[][] Pr) {
-		log.debug("recursive_H: k = " + k + ", r = " + r + ", a = " + a);
+		log.trace("recursive_H: k = " + k + ", r = " + r + ", a = " + a);
 		if (k < 0 || r < 0 || a < 0) return;
 		int id = H_bt[k][r][a];
 		
@@ -222,7 +222,7 @@ public class TDVP {
 			return;
 		}
 		
-		log.debug("Adding " + id);
+		log.trace("Adding " + id);
 		ids.add(id);
 		recursiveH_bt(ids,H_bt,k,r-1,a - Pr[k][r],Pr);
 	}

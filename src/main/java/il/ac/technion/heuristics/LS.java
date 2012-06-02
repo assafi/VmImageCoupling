@@ -22,12 +22,16 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.apache.log4j.Logger;
+
 public class LS {
+	
+	private static Logger logger = Logger.getLogger(LS.class);
 	
 	public void solve(List<Host> hosts, List<Image> images, Map<Image, List<VM>> im2vms, Map<Integer, VM> id2vmMap) {
 		phase1(hosts, images);
-		phase2(hosts, images, im2vms, id2vmMap);
-		phase3(hosts, images, im2vms, id2vmMap);
+		phase2(hosts, im2vms, id2vmMap);
+		phase3(hosts, im2vms, id2vmMap);
 	}
 
 	private void phase1(List<Host> hosts, List<Image> images) {
@@ -45,13 +49,13 @@ public class LS {
 			throw new RuntimeException("Could not complete phase 1 (Image placement)");
 		}
 		
-		System.out.println("===== End of phase 1 =====");
+		logger.info("===== End of phase 1 =====");
 		for (Host host : hosts) {
-			System.out.println(host.description());
+			logger.debug(host.description());
 		}
 	}
 	
-	private void phase2(List<Host> hosts, List<Image> images, Map<Image, List<VM>> im2vms, Map<Integer, VM> vms) {
+	private void phase2(List<Host> hosts, Map<Image, List<VM>> im2vms, Map<Integer, VM> vms) {
 		MultiTDVP mtdvp = new MultiTDVP();
 		int[] vArr = new int[hosts.size()];
 		int[] cArr = new int[hosts.size()];
@@ -62,24 +66,26 @@ public class LS {
 		}
 		
 		int M = im2vms.keySet().size();
-		int[] imVmCount = CouplingUtils.imageVmsCount(images, im2vms);
-		int[][] imSz = CouplingUtils.imageSizesPerHost(hosts, images);
+		int[] imVmCount = CouplingUtils.imageVmsCount(im2vms);
+		int[][] imSz = CouplingUtils.imageSizesPerHost(hosts, im2vms.keySet());
 		int max_Nk = maxValue(imVmCount);
-		int[][] vmSz = CouplingUtils.vmSizes(M, max_Nk, images, im2vms);
+		int[][] vmSz = CouplingUtils.vmSizes(M, max_Nk, im2vms);
 		int[][] vmPr = CouplingUtils.vmProfits(M, max_Nk, im2vms);
-		int[][] ids = CouplingUtils.vmIds(M, max_Nk, images, im2vms);
+		int[][] ids = CouplingUtils.vmIds(M, max_Nk, im2vms);
 		MtdvpSolution sol = mtdvp.solve(vArr, cArr, vmSz, vmPr, imSz, imVmCount, ids);
 		assignSolution(sol.assignments,hosts,vms,im2vms);
 	}
 
 	//todo: hosts should be an ArrayList
-	private void phase3(List<Host> hosts, List<Image> images, Map<Image, List<VM>> im2vms, Map<Integer, VM> id2vmMap) {
+	private void phase3(List<Host> hosts, Map<Image, List<VM>> im2vms, Map<Integer, VM> id2vmMap) {
+		logger.info("===== Start of phase 3 =====");
+		logger.info("Number of local VMs at start of phase: " + countLocal(hosts));
 		boolean changed = !im2vms.isEmpty(); // If all VMs have been placed we've reached the optimum
-		while (changed) {
+		DiffCache cache = new DiffCache(hosts.size());
+		while (changed && !im2vms.isEmpty()) {
 			changed = false;
 			Host maxHost1 = null, maxHost2 = null;
 			MtdvpSolution maxSolution = null;
-			DiffCache cache = new DiffCache(hosts.size());
 			int maxI = -1, maxJ = -1;
 			int maxDiff = 0;
 			for (int i = 0; i < hosts.size(); i++) {
@@ -89,7 +95,7 @@ public class LS {
 					int base = host1.numVMs() + host2.numVMs();
 					if (cache.validEntry(i, j)) {
 						int cachedDiff = cache.getEntry(i, j);
-						if (cachedDiff > (maxSolution == null ? 0 : maxDiff)) {
+						if (cachedDiff > maxDiff) {
 							maxSolution = null;
 							maxHost1 = host1;
 							maxI = i;
@@ -99,9 +105,9 @@ public class LS {
 							changed = true;
 						}
 					} else {
-						MtdvpSolution solution = calcImprovement(host1,host2,images,im2vms);
+						MtdvpSolution solution = calcImprovement(host1,host2,im2vms);
 						cache.updateCache(i, j, solution.profit - base);
-						if (solution.profit - base > (maxSolution == null ? 0 : maxDiff)) {
+						if (solution.profit - base > maxDiff) {
 							maxSolution = solution;
 							maxHost1 = host1;
 							maxI = i;
@@ -114,14 +120,24 @@ public class LS {
 				}
 			}
 			if (changed) {
-				System.out.println(maxDiff);
 				if (maxSolution == null) {
-					maxSolution = calcImprovement(maxHost1,maxHost2,images,im2vms);
+					maxSolution = calcImprovement(maxHost1,maxHost2,im2vms);
 				}
+				int base = maxHost1.numVMs() + maxHost2.numVMs();
+				int diff = maxSolution.profit - base;
+				logger.debug("Current improvement: " + diff + ", Current improvement at hosts: " + maxHost1.id + " & " + maxHost2.id + ", #Local VMs: " + countLocal(hosts));
 				assignImprovement(maxHost1,maxHost2,maxSolution, id2vmMap);
 				cache.invalidateEntry(maxI, maxJ);
 			}
 		}
+	}
+
+	private int countLocal(List<Host> hosts) {
+		int count = 0;
+		for (Host host : hosts) {
+			count += host.numVMs();
+		}
+		return count;
 	}
 
 	private void assignImprovement(Host maxHost1, Host maxHost2,
@@ -139,10 +155,12 @@ public class LS {
 	private class DiffCache {
 		
 		private int[][] cache;
+		private boolean[][] valid;
 		private int length;
 		
 		DiffCache(int size) {
 			this.cache = new int[size][size];
+			this.valid = new boolean[size][size];
 			this.length = size;
 		}
 		
@@ -150,7 +168,9 @@ public class LS {
 			if (i < 0 || j < 0 || i >= length || j >= length) 
 				throw new RuntimeException("Invalid cache entry [i=" + i + ",j=" + j + "]");
 			cache[i][j] = value;
+			valid[i][j] = true;
 			cache[j][i] = value;
+			valid[j][i] = true;
 		}
 		
 		void invalidateEntry(int i, int j) {
@@ -158,16 +178,20 @@ public class LS {
 				throw new RuntimeException("Invalid cache entry [i=" + i + ",j=" + j + "]");
 			for (int r = 0; r < length; r++) {
 				cache[i][r] = 0;
+				valid[i][r] = false;
 				cache[j][r] = 0;
+				valid[j][r] = false;
 				cache[r][i] = 0;
+				valid[r][i] = false;
 				cache[r][j] = 0;
+				valid[r][j] = false;
 			}
 		}
 		
 		boolean validEntry(int i, int j) {
 			if (i < 0 || j < 0 || i >= length || j >= length) 
 				throw new RuntimeException("Invalid cache entry [i=" + i + ",j=" + j + "]");
-			return cache[i][j] != 0;
+			return valid[i][j];
 		}
 		
 		int getEntry(int i, int j) {
@@ -177,13 +201,12 @@ public class LS {
 		}
 	}
 	
-	private MtdvpSolution calcImprovement(Host host1, Host host2,
-			List<Image> images, Map<Image, List<VM>> im2vms) {
+	private MtdvpSolution calcImprovement(Host host1, Host host2
+			, Map<Image, List<VM>> im2vms) {
 		int k = 1; // Temp fix, will generalize later
 
 		Set<Image> up2Kreplicas = new HashSet<Image>();
-		extractUp2Kreplicas(host1.images(),up2Kreplicas,k);
-		extractUp2Kreplicas(host2.images(),up2Kreplicas,k);
+		extractUp2Kreplicas(host1.images(),host2.images(),up2Kreplicas,k);
 
 		MultiTDVP mtdvp = new MultiTDVP();
 		MtdvpSolution maxSol = null;
@@ -205,12 +228,12 @@ public class LS {
 			int[] vArr = new int[]{clone1.availableRAM(), clone2.availableRAM()};
 			int[] cArr = new int[]{clone1.availableStorage(), clone2.availableStorage()};
 			
-			int[][] imSz = CouplingUtils.imageSizesPerHost(Arrays.asList(clone1,clone2), images);
-			int[] imVmCount = CouplingUtils.imageVmsCount(images, im2vms);
+			int[][] imSz = CouplingUtils.imageSizesPerHost(Arrays.asList(clone1,clone2), im2vms.keySet());
+			int[] imVmCount = CouplingUtils.imageVmsCount(im2vms);
 			int max_Nk = maxValue(imVmCount);
-			int[][] vmSz = CouplingUtils.vmSizes(M, max_Nk, images, im2vms);
+			int[][] vmSz = CouplingUtils.vmSizes(M, max_Nk,im2vms);
 			int[][] vmPr = CouplingUtils.vmProfits(M, max_Nk, im2vms);
-			int[][] ids = CouplingUtils.vmIds(M, max_Nk, images, im2vms);
+			int[][] ids = CouplingUtils.vmIds(M, max_Nk, im2vms);
 			
 			clone1.reset();
 			clone2.reset();
@@ -264,6 +287,25 @@ public class LS {
 		for (Image image : images) {
 			if (image.numReplicas() <= k) {
 				up2Kreplicas.add(image);
+			} 
+		}
+	}
+	
+	private void extractUp2Kreplicas(Collection<Image> imageCollection1, Collection<Image> imageCollection2,
+			Set<Image> up2Kreplicas, int k) {
+		
+		extractUp2Kreplicas(imageCollection1,up2Kreplicas,k);
+		extractUp2Kreplicas(imageCollection2,up2Kreplicas,k);
+		
+		for (Image image : imageCollection1) {
+			if (imageCollection2.contains(image) && image.numReplicas() == k+1) {
+				up2Kreplicas.add(image);
+			}
+		}
+		
+		for (Image image : imageCollection2) {
+			if (imageCollection1.contains(image) && image.numReplicas() == k+1) {
+				up2Kreplicas.add(image);
 			}
 		}
 	}
@@ -279,7 +321,7 @@ public class LS {
 	private void assignSolution(Solution[] sol, List<Host> hosts, Map<Integer, VM> vms, Map<Image, List<VM>> im2vms) {
 		int i = 0;
 		
-		System.out.println("===== End of phase 2 =====");
+		logger.info("===== End of phase 2 =====");
 		for (Host host : hosts) {
 			for (int id : sol[i].ids) {
 				VM vm = vms.get(id);
@@ -292,7 +334,7 @@ public class LS {
 				}
 			}
 			i++;
-			System.out.println(host.description());
+			logger.debug(host.description());
 		}
 	}
 }

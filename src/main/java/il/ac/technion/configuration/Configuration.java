@@ -293,7 +293,7 @@ public class Configuration {
 	 * @return the hosts
 	 */
 	public List<Host> getHosts() {
-		return hosts;
+		return new ArrayList<Host>(hosts);
 	}
 
 	/**

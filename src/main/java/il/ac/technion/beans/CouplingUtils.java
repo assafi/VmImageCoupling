@@ -11,26 +11,28 @@ import java.util.Map;
 import java.util.Set;
 
 public class CouplingUtils {
-	public static int[][] vmIds(int M, int max_Nk, List<Image> images, Map<Image, List<VM>> im2vms) {
+	public static int[][] vmIds(int M, int max_Nk, Map<Image, List<VM>> im2vms) {
 		int[][] ids = new int[M][max_Nk];
-		Iterator<Image> iter = images.iterator();
-		for (int k = 0; k < M; k++) {
-			Image im = iter.next();
-			for (int r = 0; r < im2vms.get(im).size(); r++) {
-				ids[k][r] = im2vms.get(im).get(r).id;
+		int k = 0;
+		for (Image im : im2vms.keySet()) {
+			int r = 0;
+			for (VM vm : im2vms.get(im)) {
+				ids[k][r++] = vm.id;
 			}
+			k++;
 		}
 		return ids;
 	}
 	
-	public static int[][] vmSizes(int M, int max_Nk, List<Image> images, Map<Image, List<VM>> im2vms) {
+	public static int[][] vmSizes(int M, int max_Nk, Map<Image, List<VM>> im2vms) {
 		int[][] sizes = new int[M][max_Nk];
-		Iterator<Image> iter = images.iterator();
-		for (int k = 0; k < M; k++) {
-			Image im = iter.next();
-			for (int r = 0; r < im2vms.get(im).size(); r++) {
-				sizes[k][r] = im2vms.get(im).get(r).size();
+		int k = 0;
+		for (Image im : im2vms.keySet()) {
+			int r = 0;
+			for (VM vm : im2vms.get(im)) {
+				sizes[k][r++] = vm.size(); 
 			}
+			k++;
 		}
 		return sizes;
 	}
@@ -54,16 +56,16 @@ public class CouplingUtils {
 		return sizes;
 	}
 
-	public static int[] imageVmsCount(List<Image> images, Map<Image, List<VM>> im2vms) {
+	public static int[] imageVmsCount(Map<Image, List<VM>> im2vms) {
 		int[] vmCounts = new int[im2vms.keySet().size()];
-		Iterator<Image> iter = images.iterator();
-		for (int i = 0; i < vmCounts.length; i++) {
-			vmCounts[i] = im2vms.get(iter.next()).size();
+		int i = 0;
+		for (Image im : im2vms.keySet()) {
+			vmCounts[i++] = im2vms.get(im).size();
 		}
 		return vmCounts;
 	}
 
-	public static int[][] imageSizesPerHost(List<Host> hosts, List<Image> images) {
+	public static int[][] imageSizesPerHost(List<Host> hosts, Set<Image> images) {
 		int[][] $ = new int[hosts.size()][images.size()];
 		int i = 0;
 		for (Host host : hosts) {

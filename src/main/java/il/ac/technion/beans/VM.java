@@ -5,10 +5,9 @@
  */
 package il.ac.technion.beans;
 
-import il.ac.technion.data_extraction.Itemable;
 import il.ac.technion.misc.HashCodeUtil;
 
-public class VM implements Itemable {
+public class VM {
 
 	public final int id;
 	public final Image image;

@@ -14,7 +14,6 @@ import il.ac.technion.configuration.ConfigurationException;
 import il.ac.technion.tdvp.TDVP.Solution;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -43,13 +42,12 @@ public class TdvpTest {
 
 	private Solution runTdvp(int V, int C, Map<Image, List<VM>> im2vms) {
 		int M = im2vms.keySet().size();
-		List<Image> images = new ArrayList<Image>(im2vms.keySet());
-		int[] imVmCount = CouplingUtils.imageVmsCount(images, im2vms);
+		int[] imVmCount = CouplingUtils.imageVmsCount(im2vms);
 		int[] imSz = CouplingUtils.imageSizes(im2vms.keySet());
 		int max_Nk = maxValue(imVmCount);
-		int[][] vmSz = CouplingUtils.vmSizes(M, max_Nk, images, im2vms);
+		int[][] vmSz = CouplingUtils.vmSizes(M, max_Nk, im2vms);
 		int[][] vmPr = CouplingUtils.vmProfits(M, max_Nk, im2vms);
-		int[][] ids = CouplingUtils.vmIds(M, max_Nk, images, im2vms);
+		int[][] ids = CouplingUtils.vmIds(M, max_Nk, im2vms);
 		Solution sol = tdvp.solve(V, C, vmSz, vmPr, imSz, imVmCount, ids);
 		return sol;
 	}

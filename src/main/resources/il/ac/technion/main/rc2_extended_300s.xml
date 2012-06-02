@@ -1,0 +1,2973 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<experiment>
+<hosts>
+<host>
+<storage>250</storage>
+<ram>30</ram>
+<count>30</count>
+</host>
+<host>
+<storage>250</storage>
+<ram>62</ram>
+<count>94</count>
+</host>
+<host>
+<storage>250</storage>
+<ram>126</ram>
+<count>11</count>
+</host>
+<host>
+<storage>250</storage>
+<ram>254</ram>
+<count>2</count>
+</host>
+</hosts>
+<images>
+<image>
+<id>pok1img-3834.0</id>
+<description>DIRDB-RHEL5.5_x64-DB2 9.7 fp3a-medium -Good for ISD DB2
+					testing</description>
+<size unit="bytes">39739301197</size>
+</image>
+<image>
+<id>pok1img-7119.0</id>
+<description>Director 6.2.1.2 (75A GM - RHEL 5.5 JDK - Medium) 8-4-2011
+					21:44:42 8-5-2011 9:33:15</description>
+<size unit="bytes">39739301197</size>
+</image>
+<image>
+<id>pok1img-2770.0</id>
+<description>Image_Jomo_Was_Nd_v70_Node_v04 10-18-2010 11:06:04</description>
+<size unit="bytes">38655755391</size>
+</image>
+<image>
+<id>pok1img-3737.0</id>
+<description>Mike's RHEL5 base, medium size, updated 2-2-2011</description>
+<size unit="bytes">39729923199</size>
+</image>
+<image>
+<id>pok1img-8146.0</id>
+<description>Director 6.3 (0104 - AIX 6.1 - Medium)</description>
+<size unit="bytes">17847910400</size>
+</image>
+<image>
+<id>pok1img-8147.0</id>
+<description>Director 6.3 (CRIB 1237 - RHEL 5.5 - Medium)</description>
+<size unit="bytes">39739301197</size>
+</image>
+<image>
+<id>pok1img-8144.0</id>
+<description>Director 6.3 (0104 - RHEL 6 - Large)</description>
+<size unit="bytes">78385677544</size>
+</image>
+<image>
+<id>pok1img-2284.0</id>
+<description>newsMashImage-7</description>
+<size unit="bytes">38655730815</size>
+</image>
+<image>
+<id>pok1img-8148.0</id>
+<description>Director 6.3 (CRIB 1237 - SLES 11 - Large)</description>
+<size unit="bytes">79465942656</size>
+</image>
+<image>
+<id>pok1img-8149.0</id>
+<description>Director 6.3 (CRIB 1237 - SLES 11 - Medium)</description>
+<size unit="bytes">40811236991</size>
+</image>
+<image>
+<id>pok1img-2859.0</id>
+<description>RHEL_5u3_x86_64bit_large_WPS_Image 10-26-2010 12:35:16
+					10-27-2010 10:37:34</description>
+<size unit="bytes">77310461055</size>
+</image>
+<image>
+<id>pok1img-7382.0</id>
+<description>IUFM d15 + Director 6.3 (0087 - SLES 11 - Large)</description>
+<size unit="bytes">79465942656</size>
+</image>
+<image>
+<id>pok1img-7381.0</id>
+<description>IUFM d15 + Director 6.3 (0085 - SLES 11 - Large)</description>
+<size unit="bytes">79465942652</size>
+</image>
+<image>
+<id>pok1img-7384.0</id>
+<description>IUFM d15 + Director 6.3 (0087 - SLES 11 - Large) with NSP
+				</description>
+<size unit="bytes">79465942656</size>
+</image>
+<image>
+<id>pok1img-8143.0</id>
+<description>IUFM d19 + Director 6.3 (0104 - SLES 11 - Large)</description>
+<size unit="bytes">79465942655</size>
+</image>
+<image>
+<id>pok1img-5011.0</id>
+<description>RPT (SLES11 SP1 32bit Medium)</description>
+<size unit="bytes">40811236991</size>
+</image>
+<image>
+<id>pok1img-8140.0</id>
+<description>Director 6.3 (0104 - SLES 11 - Large)</description>
+<size unit="bytes">79465942656</size>
+</image>
+<image>
+<id>pok1img-8141.0</id>
+<description>Director 6.3 (CRIB 1236 - RHEL 5.5 - Large)</description>
+<size unit="bytes">78394006771</size>
+</image>
+<image>
+<id>pok1img-3157.0</id>
+<description>Image_Jomo_WasNd70_Db2Wse95_DmgrOdc_v07</description>
+<size unit="bytes">38656181375</size>
+</image>
+<image>
+<id>pok1img-2782.0</id>
+<description>ISD62_VMC23_RHEL_5u3_x86_64bit_large-2-4-2010 16:18:46
+					10-18-2010 15:17:00</description>
+<size unit="bytes">77310436463</size>
+</image>
+<image>
+<id>pok1img-2074.0</id>
+<description>UIMA-AS Test RHEL_5u3_x86_64bit_medium Image</description>
+<size unit="bytes">38655730799</size>
+</image>
+<image>
+<id>pok1img-2860.0</id>
+<description>RHEL_5u3_x86_64bit_medium opensips 1.6.2 with mysql support
+					8-12-2010 12:51:38 10-27-2010 11:16:47</description>
+<size unit="bytes">38655730815</size>
+</image>
+<image>
+<id>pok1img-8133.0</id>
+<description>Director 6.3 (0104 - RHEL 6 - Medium)</description>
+<size unit="bytes">39730971880</size>
+</image>
+<image>
+<id>pok1img-4540.0</id>
+<description>Director 6.3 VMC (0037 - RHEL 5.5 - Medium) 3-22-2011 15:02:27
+					3-22-2011 19:29:02</description>
+<size unit="bytes">39739301197</size>
+</image>
+<image>
+<id>pok1img-8134.0</id>
+<description>Director 6.3 (0104 - SLES 11 - Medium)</description>
+<size unit="bytes">40811236988</size>
+</image>
+<image>
+<id>pok1img-8135.0</id>
+<description>Director 6.3 (CRIB 1236 - RHEL 6 - Medium)</description>
+<size unit="bytes">39730971877</size>
+</image>
+<image>
+<id>pok1img-8136.0</id>
+<description>Director 6.3 (CRIB 1236 - SLES 11 - Large)</description>
+<size unit="bytes">79465942652</size>
+</image>
+<image>
+<id>pok1img-8137.0</id>
+<description>Director 6.3 (CRIB 1236 - SLES 11 - Medium)</description>
+<size unit="bytes">40811236988</size>
+</image>
+<image>
+<id>pok1img-7296.0</id>
+<description>IUFM d14 + Director 6.3 (0084 - SLES 11 - Large) v2</description>
+<size unit="bytes">79465942655</size>
+</image>
+<image>
+<id>pok1img-7399.0</id>
+<description>SLES 11 with OpenLDAP 8-19-2011 12:30:12</description>
+<size unit="bytes">40811236992</size>
+</image>
+<image>
+<id>pok1img-8138.0</id>
+<description>Director 6.3 (CRIB 1236 - RHEL 5.5 - Medium)</description>
+<size unit="bytes">39739301197</size>
+</image>
+<image>
+<id>pok1img-7105.0</id>
+<description>IUFM d14 + Director 6.3 (0080 - SLES 11 - Large)</description>
+<size unit="bytes">79465942655</size>
+</image>
+<image>
+<id>pok1img-3929.0</id>
+<description>Director 6.3 (CRIB 389 - RHEL 5.5 - Medium) 1-21-2011 12:37:40
+					2-18-2011 14:07:12</description>
+<size unit="bytes">39739301197</size>
+</image>
+<image>
+<id>pok1img-3158.0</id>
+<description>Image_Jomo_Was_Nd_v70_Dmgr_Odc_v06</description>
+<size unit="bytes">38656181376</size>
+</image>
+<image>
+<id>pok1img-4137.0</id>
+<description>AIX_61_STG MC4U_small</description>
+<size unit="bytes">5588224000</size>
+</image>
+<image>
+<id>pok1img-8130.0</id>
+<description>Director 6.3 (CRIB 1235 - RHEL 5.5 - Large)</description>
+<size unit="bytes">78394006771</size>
+</image>
+<image>
+<id>pok1img-8131.0</id>
+<description>Director 6.3 (0104 - RHEL 5.5 - Medium)</description>
+<size unit="bytes">39739301197</size>
+</image>
+<image>
+<id>pok1img-8132.0</id>
+<description>Director 6.3 (0104 - RHEL 5.5 - Large)</description>
+<size unit="bytes">78394006771</size>
+</image>
+<image>
+<id>pok1img-3855.0</id>
+<description>IUFM d3 + Director 6.3 (0021 - SLES 11 - Medium + delivery 3)
+				</description>
+<size unit="bytes">40811236991</size>
+</image>
+<image>
+<id>pok1img-2650.0</id>
+<description>TA Engine - cloud runner v4</description>
+<size unit="bytes">39738850637</size>
+</image>
+<image>
+<id>pok1img-2065.0</id>
+<description>RHEL_5u3_x86_64bit_small</description>
+<size unit="bytes">18875393136</size>
+</image>
+<image>
+<id>pok1img-2066.0</id>
+<description>RHEL_5u3_x86_64bit_medium</description>
+<size unit="bytes">38655730799</size>
+</image>
+<image>
+<id>pok1img-4025.0</id>
+<description>DIRDB - AIX 6.1 - DB2 9.7fp3 server - Big</description>
+<size unit="bytes">6036684800</size>
+</image>
+<image>
+<id>pok1img-2067.0</id>
+<description>RHEL_5u3_x86_64bit_large</description>
+<size unit="bytes">77310436463</size>
+</image>
+<image>
+<id>pok1img-2068.0</id>
+<description>RHEL_5u3_64bit_x86_extra_large</description>
+<size unit="bytes">77310436463</size>
+</image>
+<image>
+<id>pok1img-3710.0</id>
+<description>Director 6.2.1.2 (62A - AIX 6.1 - Medium) + VMC 2.3.1GA
+					1-31-2011 12:41:45 2-1-2011 16:13:00</description>
+<size unit="bytes">12425728000</size>
+</image>
+<image>
+<id>pok1img-4023.0</id>
+<description>Director-ready base image (AIX 6.1)</description>
+<size unit="bytes">4090675200</size>
+</image>
+<image>
+<id>pok1img-5965.0</id>
+<description>Dir 55 + NC + RTP NSP Setup after CNT</description>
+<size unit="bytes">79465942655</size>
+</image>
+<image>
+<id>pok1img-8128.0</id>
+<description>Director 6.3 (CRIB 1235 - SLES 11 - Medium)</description>
+<size unit="bytes">40811236992</size>
+</image>
+<image>
+<id>pok1img-2796.0</id>
+<description>m2instance 10-15-2010 14:01:28 10-19-2010 22:55:31 10-19-2010
+					23:21:53</description>
+<size unit="bytes">77310461058</size>
+</image>
+<image>
+<id>pok1img-8129.0</id>
+<description>Director 6.3 (CRIB 1235 - RHEL 6 - Large)</description>
+<size unit="bytes">78385677544</size>
+</image>
+<image>
+<id>pok1img-7260.0</id>
+<description>IUFM d14 + Director 6.3 (0084 - SLES 11 - Large)</description>
+<size unit="bytes">79465942655</size>
+</image>
+<image>
+<id>pok1img-8126.0</id>
+<description>Director 6.3 (CRIB 1235 - RHEL 5.5 - Medium)</description>
+<size unit="bytes">39739301197</size>
+</image>
+<image>
+<id>pok1img-7263.0</id>
+<description>BVT Director-ready base image (AIX 6.1)</description>
+<size unit="bytes">4118118400</size>
+</image>
+<image>
+<id>pok1img-8127.0</id>
+<description>Director 6.3 (CRIB 1235 - SLES 11 - Large)</description>
+<size unit="bytes">79465942656</size>
+</image>
+<image>
+<id>pok1img-8124.0</id>
+<description>Director 6.3 (CRIB 1234 - SLES 11 - Large)</description>
+<size unit="bytes">79465942652</size>
+</image>
+<image>
+<id>pok1img-2260.0</id>
+<description>RHEL_5u3_x86_64bit_medium opensips 1.6.2 with mysql support
+				</description>
+<size unit="bytes">38655730815</size>
+</image>
+<image>
+<id>pok1img-5133.0</id>
+<description>DIRDB (S14) 4/22pm - AIX 6.1 - DB2 9.7GA server
+					w/StorageControl</description>
+<size unit="bytes">23848704000</size>
+</image>
+<image>
+<id>pok1img-8125.0</id>
+<description>Director 6.3 (CRIB 1235 - RHEL 6 - Medium)</description>
+<size unit="bytes">39730971880</size>
+</image>
+<image>
+<id>pok1img-8122.0</id>
+<description>Director 6.3 (CRIB 1234 - RHEL 6 - Large)</description>
+<size unit="bytes">78385677544</size>
+</image>
+<image>
+<id>pok1img-2262.0</id>
+<description>Director 6.2 (GA) - Kick the Tires</description>
+<size unit="bytes">77310436479</size>
+</image>
+<image>
+<id>pok1img-2596.0</id>
+<description>Director 6.2.1 (31A) - Test 9-22-2010 13:27:31 9-22-2010
+					14:36:58</description>
+<size unit="bytes">38655730815</size>
+</image>
+<image>
+<id>pok1img-8123.0</id>
+<description>Director 6.3 (CRIB 1234 - RHEL 5.5 - Large)</description>
+<size unit="bytes">78394006768</size>
+</image>
+<image>
+<id>pok1img-2972.0</id>
+<description>BVT_RHEL_53_clean_large</description>
+<size unit="bytes">77310887039</size>
+</image>
+<image>
+<id>pok1img-4128.0</id>
+<description>mks - RHEL 5.5 - DB29.7 GA-Large) 2-28-2011 9:42:31 2-28-2011
+					23:03:23</description>
+<size unit="bytes">78394006771</size>
+</image>
+<image>
+<id>pok1img-8121.0</id>
+<description>Director 6.3 (CRIB 1234 - RHEL 6 - Medium)</description>
+<size unit="bytes">39730971877</size>
+</image>
+<image>
+<id>pok1img-7134.0</id>
+<description>IUFM d14 + Director 6.3 (0081 - SLES 11 - Large)</description>
+<size unit="bytes">79465942655</size>
+</image>
+<image>
+<id>pok1img-3850.0</id>
+<description>DIRDB-RHEL5.5_x64-ISD6.2.1-DB2 9.7 fp3a-medium -Good for ISD
+					DB2 testing</description>
+<size unit="bytes">39739301197</size>
+</image>
+<image>
+<id>pok1img-2653.0</id>
+<description>RHEL_5u3_x86_64bit_medium OpenCV-2.1.0 with MPI 2010-10-01
+				</description>
+<size unit="bytes">38655730815</size>
+</image>
+<image>
+<id>pok1img-7136.0</id>
+<description>Big env</description>
+<size unit="bytes">78394006768</size>
+</image>
+<image>
+<id>pok1img-2978.0</id>
+<description>ISL Municipal Services Cloud Demo 11-10-2010</description>
+<size unit="bytes">38656181375</size>
+</image>
+<image>
+<id>pok1img-3177.0</id>
+<description>orquesta RHEL migration test instance 12-8-2010 10:50:09
+				</description>
+<size unit="bytes">77310436463</size>
+</image>
+<image>
+<id>pok1img-2467.0</id>
+<description>Cognos_BI_84_DB297_RHEL_5u3_x86_64bit_large 8-30-2010</description>
+<size unit="bytes">77310436479</size>
+</image>
+<image>
+<id>pok1img-3270.0</id>
+<description>SVT Director 6.2 xLinux Medium + Adv. Mgrs.</description>
+<size unit="bytes">40811236991</size>
+</image>
+<image>
+<id>pok1img-4426.0</id>
+<description>DIRDB-RHEL5.5_x64-DB2 9.7ga - med -Managed DB2 also installed-
+					Use for local external DB2 to Managed DB2 migration testing</description>
+<size unit="bytes">39739301197</size>
+</image>
+<image>
+<id>pok1img-7938.0</id>
+<description>TPC_4.2.1.185 (GA+FP04) + DB2 EE 9.7 AIX 6.1 TL6 SP2 rev:I
+					9-21-2011 5:04:42</description>
+<size unit="bytes">28557772800</size>
+</image>
+<image>
+<id>pok1img-5979.0</id>
+<description>SLES11_64bit_extra_large</description>
+<size unit="bytes">79465492092</size>
+</image>
+<image>
+<id>pok1img-7939.0</id>
+<description>Director 6.3 (CRIB 1188 - SLES 11 - Medium)</description>
+<size unit="bytes">40811236991</size>
+</image>
+<image>
+<id>pok1img-3274.0</id>
+<description>Director 6.2.1 (54A - RHEL 5.5 - Large) VMC 2.3.1 build 304 +
+					VNG code 11-16-2010 12-21-2010 14:37:12 12-21-2010 15:42:50</description>
+<size unit="bytes">78394006771</size>
+</image>
+<image>
+<id>pok1img-7936.0</id>
+<description>Director 6.3 (CRIB 1187 - RHEL 5.5 - Large)</description>
+<size unit="bytes">78394006768</size>
+</image>
+<image>
+<id>pok1img-2054.0</id>
+<description>RHEL_5u3_DB2 XAMPP_medium</description>
+<size unit="bytes">18875393136</size>
+</image>
+<image>
+<id>pok1img-7934.0</id>
+<description>Director 6.3 (CRIB 1187 - RHEL 6 - Large)</description>
+<size unit="bytes">78385677541</size>
+</image>
+<image>
+<id>pok1img-7935.0</id>
+<description>Director 6.3 (CRIB 1187 - SLES 11 - Large)</description>
+<size unit="bytes">79465942652</size>
+</image>
+<image>
+<id>pok1img-5974.0</id>
+<description>IUFM - End of Sprint F custom installer</description>
+<size unit="bytes">79465942655</size>
+</image>
+<image>
+<id>pok1img-2050.0</id>
+<description>RHEL_5u3_x86_64bit_medium GPFS SNC image 6-23-2010 14:10:03
+				</description>
+<size unit="bytes">38655730799</size>
+</image>
+<image>
+<id>pok1img-780.0</id>
+<description>Darwin RC2 DIT v1</description>
+<size unit="bytes">19949134920</size>
+</image>
+<image>
+<id>pok1img-8116.0</id>
+<description>Director 6.3 (CRIB 1234 - RHEL 5.5 - Medium)</description>
+<size unit="bytes">39739301197</size>
+</image>
+<image>
+<id>pok1img-5971.0</id>
+<description>TonyD - Director 6.3 (0063 + ETPC35) - AIX 6.1 - Medium</description>
+<size unit="bytes">16393318400</size>
+</image>
+<image>
+<id>pok1img-8117.0</id>
+<description>Director 6.3 (CRIB 1234 - SLES 11 - Medium)</description>
+<size unit="bytes">40811236988</size>
+</image>
+<image>
+<id>pok1img-8118.0</id>
+<description>Director 6.3 (CRIB 1232 - RHEL 5.5 - Large)</description>
+<size unit="bytes">78394006771</size>
+</image>
+<image>
+<id>pok1img-2252.0</id>
+<description>MCTS Large</description>
+<size unit="bytes">78384178412</size>
+</image>
+<image>
+<id>pok1img-8111.0</id>
+<description>Director 6.3 (CRIB 1232 - SLES 11 - Large)</description>
+<size unit="bytes">79465942655</size>
+</image>
+<image>
+<id>pok1img-2885.0</id>
+<description>BVT_SLES11_64bit_clean_small</description>
+<size unit="bytes">19347334271</size>
+</image>
+<image>
+<id>pok1img-8114.0</id>
+<description>Director 6.3 (CRIB 1232 - RHEL 6 - Large)</description>
+<size unit="bytes">78385677544</size>
+</image>
+<image>
+<id>pok1img-5121.0</id>
+<description>IUFM d6 + Director 6.3 (CRIB 666 - SLES 11 - Large)</description>
+<size unit="bytes">79465942655</size>
+</image>
+<image>
+<id>pok1img-2393.0</id>
+<description>RHEL_5u3_x86_64bit_small_MYSQL7-6-2010 14:26:48 8-16-2010
+					14:55:17 8-17-2010 14:49:10 8-19-2010 23:10:04</description>
+<size unit="bytes">18875393152</size>
+</image>
+<image>
+<id>pok1img-4116.0</id>
+<description>AIX_61_STG MC4U</description>
+<size unit="bytes">5588224000</size>
+</image>
+<image>
+<id>pok1img-8110.0</id>
+<description>Director 6.3 (CRIB 1232 - RHEL 5.5 - Medium)</description>
+<size unit="bytes">39739301197</size>
+</image>
+<image>
+<id>pok1img-2667.0</id>
+<description>BVT_AIX_61_Director_62</description>
+<size unit="bytes">3546931200</size>
+</image>
+<image>
+<id>pok1img-4119.0</id>
+<description>BVT_RHEL_55_Director_621</description>
+<size unit="bytes">78394006771</size>
+</image>
+<image>
+<id>pok1img-2535.0</id>
+<description>WAS_and_XAMPP_RHEL_5u3_x86_64bit_medium</description>
+<size unit="bytes">38655730799</size>
+</image>
+<image>
+<id>pok1img-2532.0</id>
+<description>OpenSuSE11.2_medium_hadoop0.21_cloud9</description>
+<size unit="bytes">37749765247</size>
+</image>
+<image>
+<id>pok1img-2043.0</id>
+<description>RHEL_5u3_x86_64bit_medium_opensips</description>
+<size unit="bytes">38655730799</size>
+</image>
+<image>
+<id>pok1img-8190.0</id>
+<description>Director 6.3 (CRIB 1247 - SLES 11 - Large)</description>
+<size unit="bytes">79465942652</size>
+</image>
+<image>
+<id>pok1img-3102.0</id>
+<description>BlueDove PS matcher 1 RHEL_5u3_x86_64bit_large 12-11-2009
+					14:39:25 11-26-2010 9:09:35</description>
+<size unit="bytes">77310436463</size>
+</image>
+<image>
+<id>pok1img-3101.0</id>
+<description>BlueDove PS matcher 0 RHEL_5u3_x86_64bit_large 12-11-2009
+					14:24:29 11-26-2010 9:08:15</description>
+<size unit="bytes">77310436463</size>
+</image>
+<image>
+<id>pok1img-8183.0</id>
+<description>Director 6.3 (CRIB 1243 - RHEL 5.5 - Large)</description>
+<size unit="bytes">78394006771</size>
+</image>
+<image>
+<id>pok1img-3103.0</id>
+<description>BlueDove PS dispatcher RHEL_5u3_x86_64bit_large 9-28-2009
+					15:23:56 11-26-2010 9:10:20</description>
+<size unit="bytes">77310436975</size>
+</image>
+<image>
+<id>pok1img-8182.0</id>
+<description>Director 6.3 (CRIB 1243 - SLES 11 - Large)</description>
+<size unit="bytes">79465942656</size>
+</image>
+<image>
+<id>pok1img-3104.0</id>
+<description>BlueDove PS frontend cassandra RHEL_5u3_x86_64bit_large
+					9-25-2009 11:13:57 11-26-2010 9:13:25</description>
+<size unit="bytes">77310436975</size>
+</image>
+<image>
+<id>pok1img-4918.0</id>
+<description>Director 6.2.1 (54A - RHEL 5.5 - Large) VMC 2.3.1 build 304 +
+					VNG code 11-16-2010 11-17-2010 9:49:07 11-19-2 4-11-2011 16:35:17
+				</description>
+<size unit="bytes">78394006771</size>
+</image>
+<image>
+<id>pok1img-8181.0</id>
+<description>Director 6.3 (CRIB 1243 - RHEL 6 - Medium)</description>
+<size unit="bytes">39730971880</size>
+</image>
+<image>
+<id>pok1img-8180.0</id>
+<description>Director 6.3 (CRIB 1243 - SLES 11 - Medium)</description>
+<size unit="bytes">40811236992</size>
+</image>
+<image>
+<id>pok1img-8187.0</id>
+<description>Director 6.3 (CRIB 1247 - SLES 11 - Medium)</description>
+<size unit="bytes">40811236988</size>
+</image>
+<image>
+<id>pok1img-2147.0</id>
+<description>AIX 6.1 (medium) w/ DB2 ESE 9.7</description>
+<size unit="bytes">3132825600</size>
+</image>
+<image>
+<id>pok1img-8184.0</id>
+<description>Director 6.3 (CRIB 1243 - RHEL 6 - Large)</description>
+<size unit="bytes">78385677544</size>
+</image>
+<image>
+<id>pok1img-3045.0</id>
+<description>RHEL_5u3_x86_64bit_small x10testing1 11-17-2010</description>
+<size unit="bytes">18875393152</size>
+</image>
+<image>
+<id>pok1img-8189.0</id>
+<description>Director 6.3 (CRIB 1247 - RHEL 6 - Medium)</description>
+<size unit="bytes">39730971877</size>
+</image>
+<image>
+<id>pok1img-3046.0</id>
+<description>SLES11 32bit Medium X10 testing 11-17-2010</description>
+<size unit="bytes">40810786431</size>
+</image>
+<image>
+<id>pok1img-3979.0</id>
+<description>DIRDB - AIX_6.1 - ISD 6.2 - Derby</description>
+<size unit="bytes">3721369600</size>
+</image>
+<image>
+<id>pok1img-8188.0</id>
+<description>Director 6.3 (CRIB 1247 - RHEL 5.5 - Medium)</description>
+<size unit="bytes">39739301194</size>
+</image>
+<image>
+<id>pok1img-3972.0</id>
+<description>IUFM d4 + Director 6.3 (0028 - SLES 11 - Medium) - SSL Config
+				</description>
+<size unit="bytes">40811236991</size>
+</image>
+<image>
+<id>pok1img-4911.0</id>
+<description>DIRDB (S3) Derby - ISD 6.2 AdvMgrs:YES Populated:Yes
+					VMC:Yes(Static Data) 4-11-2011 11:29:07</description>
+<size unit="bytes">77310887039</size>
+</image>
+<image>
+<id>pok1img-2031.0</id>
+<description>AIX_61_small_DB2_Domino</description>
+<size unit="bytes">7430502400</size>
+</image>
+<image>
+<id>pok1img-5386.0</id>
+<description>IUFM d7 + Director 6.3 (0051 - SLES 11 - Large)</description>
+<size unit="bytes">79465942655</size>
+</image>
+<image>
+<id>pok1img-2134.0</id>
+<description>OpenSuSE11.2_medium</description>
+<size unit="bytes">37749765244</size>
+</image>
+<image>
+<id>pok1img-2449.0</id>
+<description>Software for a Cause OSS Scan</description>
+<size unit="bytes">18875393152</size>
+</image>
+<image>
+<id>pok1img-8170.0</id>
+<description>Director 6.3 (CRIB 1241 - SLES 11 - Medium)</description>
+<size unit="bytes">40811236992</size>
+</image>
+<image>
+<id>pok1img-8172.0</id>
+<description>Director 6.3 (CRIB 1241 - RHEL 5.5 - Large)</description>
+<size unit="bytes">78394006771</size>
+</image>
+<image>
+<id>pok1img-7815.0</id>
+<description>DDE-V015-KVM-64 24GB</description>
+<size unit="bytes">78384628975</size>
+</image>
+<image>
+<id>pok1img-8171.0</id>
+<description>Director 6.3 (CRIB 1241 - RHEL 6 - Large)</description>
+<size unit="bytes">78385677544</size>
+</image>
+<image>
+<id>pok1img-8174.0</id>
+<description>Director 6.3 (CRIB 1242 - SLES 11 - Large)</description>
+<size unit="bytes">79465942655</size>
+</image>
+<image>
+<id>pok1img-8173.0</id>
+<description>Director 6.3 (CRIB 1242 - SLES 11 - Medium)</description>
+<size unit="bytes">40811236991</size>
+</image>
+<image>
+<id>pok1img-8176.0</id>
+<description>Director 6.3 (CRIB 1242 - RHEL 5.5 - Medium)</description>
+<size unit="bytes">39739301197</size>
+</image>
+<image>
+<id>pok1img-2135.0</id>
+<description>Mambo_medium</description>
+<size unit="bytes">37749765231</size>
+</image>
+<image>
+<id>pok1img-8175.0</id>
+<description>Director 6.3 (CRIB 1242 - RHEL 6 - Medium)</description>
+<size unit="bytes">39730971880</size>
+</image>
+<image>
+<id>pok1img-8178.0</id>
+<description>Director 6.3 (CRIB 1242 - RHEL 5.5 - Large)</description>
+<size unit="bytes">78394006771</size>
+</image>
+<image>
+<id>pok1img-8177.0</id>
+<description>Director 6.3 (CRIB 1242 - RHEL 6 - Large)</description>
+<size unit="bytes">78385677544</size>
+</image>
+<image>
+<id>pok1img-4306.0</id>
+<description>Director 6.3 (0033 - SLES 11 - Medium) VMC 2.4 build 1729
+					3-9-2011 13:21:08</description>
+<size unit="bytes">40811236991</size>
+</image>
+<image>
+<id>pok1img-8179.0</id>
+<description>Director 6.3 (CRIB 1243 - RHEL 5.5 - Medium)</description>
+<size unit="bytes">39739301197</size>
+</image>
+<image>
+<id>pok1img-3051.0</id>
+<description>Director 6.2.1 54A GM + DB2 (RHEL 5.5 Large)</description>
+<size unit="bytes">78394006771</size>
+</image>
+<image>
+<id>pok1img-2821.0</id>
+<description>m2instance 10-20-2010 10:41:57 10-21-2010 23:32:37 10-22-2010
+					0:05:21</description>
+<size unit="bytes">77310461057</size>
+</image>
+<image>
+<id>pok1img-3026.0</id>
+<description>Director 6.2.1 (54A GM - AIX 6.1 - Medium)</description>
+<size unit="bytes">12192051200</size>
+</image>
+<image>
+<id>pok1img-3029.0</id>
+<description>Director 6.2.1 (54A GM - RHEL 5.5 Large)</description>
+<size unit="bytes">78394006771</size>
+</image>
+<image>
+<id>pok1img-2024.0</id>
+<description>RHEL_5u3_x86_64bit_medium_opensips_proxy</description>
+<size unit="bytes">38655730799</size>
+</image>
+<image>
+<id>pok1img-5923.0</id>
+<description>IUFM d9 + Director 6.3 (0061 - SLES 11)</description>
+<size unit="bytes">79465942656</size>
+</image>
+<image>
+<id>pok1img-2555.0</id>
+<description>SLES11 SP1 32bit Medium</description>
+<size unit="bytes">40810786469</size>
+</image>
+<image>
+<id>pok1img-5924.0</id>
+<description>RAM v7.1.1 for Edith group 6-7-2011 15:09:05</description>
+<size unit="bytes">77310887548</size>
+</image>
+<image>
+<id>pok1img-5373.0</id>
+<description>Director 6.2.1.2 (75A GM - SLES 11 - Lg + NC 1.2.2 GA)</description>
+<size unit="bytes">79465942655</size>
+</image>
+<image>
+<id>pok1img-3122.0</id>
+<description>Image_JOMO_WasNd07_Db2Wse95_DbInst_v01</description>
+<size unit="bytes">38656181375</size>
+</image>
+<image>
+<id>pok1img-1990.0</id>
+<description>NameNode-regular-v3</description>
+<size unit="bytes">18875393136</size>
+</image>
+<image>
+<id>pok1img-8165.0</id>
+<description>Director 6.3 (0105 - RHEL 6 - Medium)</description>
+<size unit="bytes">39730971880</size>
+</image>
+<image>
+<id>pok1img-8164.0</id>
+<description>Director 6.3 (0105 - RHEL 6 - Large)</description>
+<size unit="bytes">78385677544</size>
+</image>
+<image>
+<id>pok1img-8163.0</id>
+<description>Director 6.3 (0105 - AIX 6.1 - Medium)</description>
+<size unit="bytes">17844377600</size>
+</image>
+<image>
+<id>pok1img-8162.0</id>
+<description>Director 6.3 (0105 - RHEL 5.5 - Medium)</description>
+<size unit="bytes">39739301197</size>
+</image>
+<image>
+<id>pok1img-8161.0</id>
+<description>Director 6.3 (0105 - SLES 11 - Medium)</description>
+<size unit="bytes">40811236991</size>
+</image>
+<image>
+<id>pok1img-8160.0</id>
+<description>Director 6.3 (0105 - SLES 11 - Large)</description>
+<size unit="bytes">79465942656</size>
+</image>
+<image>
+<id>pok1img-3127.0</id>
+<description>Director 6.2.1 (54A GM - RHEL 5.5 Large) + VMC 2.3.1 Dec 1 bld
+					1223 + Platform Mgmt Std Eclipse</description>
+<size unit="bytes">78394006771</size>
+</image>
+<image>
+<id>pok1img-1993.0</id>
+<description>DataNode-regular-v3.1</description>
+<size unit="bytes">18875393136</size>
+</image>
+<image>
+<id>pok1img-2698.0</id>
+<description>RHEL_5u3_64bit_x86_extra_large 10-7-2010 13:49:11 10-7-2010
+					23:33:57</description>
+<size unit="bytes">77310461057</size>
+</image>
+<image>
+<id>pok1img-1992.0</id>
+<description>NameNode-regular-v3.1</description>
+<size unit="bytes">18875393136</size>
+</image>
+<image>
+<id>pok1img-8169.0</id>
+<description>Director 6.3 (CRIB 1241 - SLES 11 - Large)</description>
+<size unit="bytes">79465942656</size>
+</image>
+<image>
+<id>pok1img-3955.0</id>
+<description>IUFM d4 + Director 6.3 (0028 - SLES 11 - Medium)</description>
+<size unit="bytes">40811236991</size>
+</image>
+<image>
+<id>pok1img-8168.0</id>
+<description>Director 6.3 (CRIB 1241 - RHEL 6 - Medium)</description>
+<size unit="bytes">39730971880</size>
+</image>
+<image>
+<id>pok1img-2026.0</id>
+<description>OpenSuSE 11.1 Small</description>
+<size unit="bytes">19346883711</size>
+</image>
+<image>
+<id>pok1img-8167.0</id>
+<description>Director 6.3 (CRIB 1241 - RHEL 5.5 - Medium)</description>
+<size unit="bytes">39739301197</size>
+</image>
+<image>
+<id>pok1img-5071.0</id>
+<description>RPT 01(SLES11 SP1 32bit Medium)</description>
+<size unit="bytes">40811236991</size>
+</image>
+<image>
+<id>pok1img-3039.0</id>
+<description>Director 6.2 (GA - RHEL 5.5 - Medium)</description>
+<size unit="bytes">39739301197</size>
+</image>
+<image>
+<id>pok1img-5365.0</id>
+<description>DB2+WAS+Oracle3.3.X</description>
+<size unit="bytes">77310887548</size>
+</image>
+<image>
+<id>pok1img-3038.0</id>
+<description>BCC Development</description>
+<size unit="bytes">38655731311</size>
+</image>
+<image>
+<id>pok1img-2425.0</id>
+<description>SLES10 SP3 64bit Extra Large Pangoo test only</description>
+<size unit="bytes">124567129883</size>
+</image>
+<image>
+<id>pok1img-3131.0</id>
+<description>Director 6.2.1 (GM) - Kick the Tires</description>
+<size unit="bytes">77310887039</size>
+</image>
+<image>
+<id>pok1img-2424.0</id>
+<description>SLES10 SP3 64bit Large Pangoo test only</description>
+<size unit="bytes">75498497307</size>
+</image>
+<image>
+<id>pok1img-8152.0</id>
+<description>Director 6.3 (CRIB 1237 - RHEL 5.5 - Large)</description>
+<size unit="bytes">78394006771</size>
+</image>
+<image>
+<id>pok1img-8151.0</id>
+<description>AIX_6106_large - Director 6.2.1 GA, SC 4.2.1.152 GA</description>
+<size unit="bytes">11767910400</size>
+</image>
+<image>
+<id>pok1img-8153.0</id>
+<description>Director 6.3 (CRIB 1237 - RHEL 6 - Large)</description>
+<size unit="bytes">78385677544</size>
+</image>
+<image>
+<id>pok1img-3138.0</id>
+<description>Image_Jomo_WasNd70_Db2Wse95_Node_v02</description>
+<size unit="bytes">38656181375</size>
+</image>
+<image>
+<id>pok1img-8150.0</id>
+<description>Director 6.3 (CRIB 1237 - RHEL 6 - Medium)</description>
+<size unit="bytes">39730971880</size>
+</image>
+<image>
+<id>pok1img-3136.0</id>
+<description>Director 6.2 (GA) - Kick the Tires 2010-12-02 OS update</description>
+<size unit="bytes">77310887040</size>
+</image>
+<image>
+<id>pok1img-2847.0</id>
+<description>VNCserver &amp; ICEWM desktop</description>
+<size unit="bytes">37749789823</size>
+</image>
+<image>
+<id>pok1img-4803.0</id>
+<description>COO - IUFM d6 + Director 6.3 (0039 - SLES 11 - Large)</description>
+<size unit="bytes">79465942655</size>
+</image>
+<image>
+<id>pok1img-1983.0</id>
+<description>Apache-Tomcat-IMG4JOMO-U4 1-13-2010 14:19:35 1-13-2010
+					14:40:09 1-13-2010 17:01:43 1-13-2010 17:31:02 1-14 1-14-2010
+					13:34:30</description>
+<size unit="bytes">18875393136</size>
+</image>
+<image>
+<id>pok1img-4944.0</id>
+<description>SST-MC4U-AIX61-SIMLL v1.0</description>
+<size unit="bytes">4362393600</size>
+</image>
+<image>
+<id>pok1img-5167.0</id>
+<description>Director 6.3 (CRIB 511 - RHEL 5.5 - Large) 3-24-2011 12:12:30
+					4-25-2011 12:26:08</description>
+<size unit="bytes">78394006771</size>
+</image>
+<image>
+<id>pok1img-8159.0</id>
+<description>Director 6.3 (0105 - RHEL 5.5 - Large)</description>
+<size unit="bytes">78394006771</size>
+</image>
+<image>
+<id>pok1img-3030.0</id>
+<description>Director 6.2.1 (54A GM - RHEL 5.5 - Medium)</description>
+<size unit="bytes">39739301197</size>
+</image>
+<image>
+<id>pok1img-4947.0</id>
+<description>DIRDB (S4) 4/12pm RHEL5.5 ISD 6.2.1-DB2 9.7 fp3a AdvMgrs=Yes,
+					VMC static</description>
+<size unit="bytes">39739301197</size>
+</image>
+<image>
+<id>pok1img-8156.0</id>
+<description>Director 6.3 (CRIB 1238 - RHEL 6 - Medium)</description>
+<size unit="bytes">39730971880</size>
+</image>
+<image>
+<id>pok1img-5369.0</id>
+<description>BlackBelt</description>
+<size unit="bytes">77310887039</size>
+</image>
+<image>
+<id>pok1img-8155.0</id>
+<description>Director 6.3 (CRIB 1238 - SLES 11 - Medium)</description>
+<size unit="bytes">40811236992</size>
+</image>
+<image>
+<id>pok1img-1989.0</id>
+<description>DataNode-regular-v2</description>
+<size unit="bytes">18875393136</size>
+</image>
+<image>
+<id>pok1img-8158.0</id>
+<description>Director 6.3 (CRIB 1238 - RHEL 5.5 - Large)</description>
+<size unit="bytes">78394006771</size>
+</image>
+<image>
+<id>pok1img-3033.0</id>
+<description>Director 6.2.1 (54A - RHEL 5.5 - Large) VMC 2.3.1 build 304 +
+					VNG code 11-16-2010</description>
+<size unit="bytes">78394006771</size>
+</image>
+<image>
+<id>pok1img-8157.0</id>
+<description>Director 6.3 (CRIB 1238 - SLES 11 - Large)</description>
+<size unit="bytes">79465942656</size>
+</image>
+<image>
+<id>pok1img-7982.0</id>
+<description>Director 6.3 (CRIB 1195 - RHEL 5.5 - Large)</description>
+<size unit="bytes">78394006771</size>
+</image>
+<image>
+<id>pok1img-7704.0</id>
+<description>Rational Team Concert v3.0 Context-Aware Search Engine</description>
+<size unit="bytes">38656181375</size>
+</image>
+<image>
+<id>pok1img-7981.0</id>
+<description>Director 6.3 (CRIB 1195 - SLES 11 - Large)</description>
+<size unit="bytes">79465942655</size>
+</image>
+<image>
+<id>pok1img-7980.0</id>
+<description>Director 6.3 (CRIB 1195 - RHEL 6 - Medium)</description>
+<size unit="bytes">39730971880</size>
+</image>
+<image>
+<id>pok1img-3205.0</id>
+<description>instance instance-18669 captured for mvandenb@au1.ibm.com
+				</description>
+<size unit="bytes">1981081600</size>
+</image>
+<image>
+<id>pok1img-7985.0</id>
+<description>Director 6.3 (CRIB 1195 - RHEL 6 - Large)</description>
+<size unit="bytes">78385677544</size>
+</image>
+<image>
+<id>pok1img-6208.0</id>
+<description>Fedora14-basic-32bit</description>
+<size unit="bytes">38655755391</size>
+</image>
+<image>
+<id>pok1img-7984.0</id>
+<description>Director 6.3 (CRIB 1194 - RHEL 6 - Large)</description>
+<size unit="bytes">78385677541</size>
+</image>
+<image>
+<id>pok1img-7706.0</id>
+<description>Rational Team Concert v3.0iFix1 Context-Aware Search Engine
+				</description>
+<size unit="bytes">38656181376</size>
+</image>
+<image>
+<id>pok1img-7983.0</id>
+<description>Director 6.3 (CRIB 1194 - SLES 11 - Large)</description>
+<size unit="bytes">79465942655</size>
+</image>
+<image>
+<id>pok1img-7705.0</id>
+<description>IBM Supa Web Search</description>
+<size unit="bytes">38656181375</size>
+</image>
+<image>
+<id>pok1img-7846.0</id>
+<description>Director-ready base image (Test SLES 11)</description>
+<size unit="bytes">40811236992</size>
+</image>
+<image>
+<id>pok1img-5097.0</id>
+<description>HC Web Front End checkpoint</description>
+<size unit="bytes">39739301197</size>
+</image>
+<image>
+<id>pok1img-7845.0</id>
+<description>Director-ready base image (Development SLES 11)</description>
+<size unit="bytes">79465942652</size>
+</image>
+<image>
+<id>pok1img-5099.0</id>
+<description>Director 6.2.1.2 (75A - SLES 11 - Large) 4-13-2011 17:07:28
+					4-20-2011 11:01:59</description>
+<size unit="bytes">79465942656</size>
+</image>
+<image>
+<id>pok1img-2300.0</id>
+<description>CassandraImage-1</description>
+<size unit="bytes">38655730815</size>
+</image>
+<image>
+<id>pok1img-2204.0</id>
+<description>RTC2.0.0.2 ifix3 w/RTC Social Connections</description>
+<size unit="bytes">77310436479</size>
+</image>
+<image>
+<id>pok1img-5482.0</id>
+<description>Director 6.2.1.2 (Development RHEL 5.5)</description>
+<size unit="bytes">78394006768</size>
+</image>
+<image>
+<id>pok1img-4330.0</id>
+<description>IUFM d5 + Director 6.3 (0034 - SLES 11 - Large)</description>
+<size unit="bytes">79465942655</size>
+</image>
+<image>
+<id>pok1img-7991.0</id>
+<description>Director 6.3 (0101 - SLES 11 - Medium)</description>
+<size unit="bytes">40811236991</size>
+</image>
+<image>
+<id>pok1img-7990.0</id>
+<description>Director 6.3 (0101 - SLES 11 - Large)</description>
+<size unit="bytes">79465942652</size>
+</image>
+<image>
+<id>pok1img-7993.0</id>
+<description>Director 6.3 (0101 - RHEL 5.5 - Large)</description>
+<size unit="bytes">78394006768</size>
+</image>
+<image>
+<id>pok1img-7992.0</id>
+<description>Director 6.3 (0101 - RHEL 6 - Medium)</description>
+<size unit="bytes">39730971880</size>
+</image>
+<image>
+<id>pok1img-1450.0</id>
+<description>RHEL_5u3_DB2_small</description>
+<size unit="bytes">18875393136</size>
+</image>
+<image>
+<id>pok1img-7995.0</id>
+<description>Director 6.3 (0101 - RHEL 6 - Large)</description>
+<size unit="bytes">78385677541</size>
+</image>
+<image>
+<id>pok1img-7994.0</id>
+<description>Director 6.3 (CRIB 1204 - SLES 11 - Medium)</description>
+<size unit="bytes">40811236991</size>
+</image>
+<image>
+<id>pok1img-7997.0</id>
+<description>Director 6.3 (0101 - AIX 6.1 - Medium)</description>
+<size unit="bytes">19882700800</size>
+</image>
+<image>
+<id>pok1img-7996.0</id>
+<description>Director 6.3 (CRIB 1204 - RHEL 5.5 - Medium)</description>
+<size unit="bytes">39739301197</size>
+</image>
+<image>
+<id>pok1img-7080.0</id>
+<description>RDS AIX_6106_medium - Skhbuild Aug2011</description>
+<size unit="bytes">2262067200</size>
+</image>
+<image>
+<id>pok1img-487.0</id>
+<description>PANE + GNU + XL + Java 12-16-2009 13:52:31 12-16-2009 21:04:50
+				</description>
+<size unit="bytes">3129395200</size>
+</image>
+<image>
+<id>pok1img-8093.0</id>
+<description>Director 6.3 (CRIB 1226 - SLES 11 - Large)</description>
+<size unit="bytes">79465942656</size>
+</image>
+<image>
+<id>pok1img-7999.0</id>
+<description>Director 6.3 (CRIB 1204 - RHEL 6 - Large)</description>
+<size unit="bytes">78385677541</size>
+</image>
+<image>
+<id>pok1img-8094.0</id>
+<description>Director 6.3 (0103 - RHEL 5.5 - Medium)</description>
+<size unit="bytes">39739301197</size>
+</image>
+<image>
+<id>pok1img-1457.0</id>
+<description>RHEL_5u3_DB2 XAMPP_small</description>
+<size unit="bytes">18875393136</size>
+</image>
+<image>
+<id>pok1img-8097.0</id>
+<description>Director 6.3 (0103 - SLES 11 - Large)</description>
+<size unit="bytes">79465942656</size>
+</image>
+<image>
+<id>pok1img-4341.0</id>
+<description>DIRDB - AIX_6.1 - with Managed DB2 - medium - User for Derby -
+					Managed DB2 Migration Testing</description>
+<size unit="bytes">3028736000</size>
+</image>
+<image>
+<id>pok1img-8096.0</id>
+<description>bdstage image</description>
+<size unit="bytes">38656181375</size>
+</image>
+<image>
+<id>pok1img-4340.0</id>
+<description>DIRDB-RHEL5.5_x64-medium -Managed DB2 also installed- Use for
+					Derby to Managed DB2 migration testing</description>
+<size unit="bytes">39739301197</size>
+</image>
+<image>
+<id>pok1img-8099.0</id>
+<description>Director 6.3 (0103 - RHEL 6 - Medium)</description>
+<size unit="bytes">39730971880</size>
+</image>
+<image>
+<id>pok1img-8098.0</id>
+<description>Director 6.3 (0103 - RHEL 5.5 - Large)</description>
+<size unit="bytes">78394006771</size>
+</image>
+<image>
+<id>pok1img-8090.0</id>
+<description>Director 6.3 (CRIB 1226 - RHEL 5.5 - Large)</description>
+<size unit="bytes">78394006771</size>
+</image>
+<image>
+<id>pok1img-8091.0</id>
+<description>Director 6.3 (CRIB 1226 - RHEL 6 - Large)</description>
+<size unit="bytes">78385677544</size>
+</image>
+<image>
+<id>pok1img-7725.0</id>
+<description>IUFM d17 + Director 6.3 (0096 - SLES 11 - Large)</description>
+<size unit="bytes">79465942652</size>
+</image>
+<image>
+<id>pok1img-1461.0</id>
+<description>demo test for jim RHEL_5u3_x86_64bit_small 4-8-2009 12:38:52
+					4-23-2009 12:07:31</description>
+<size unit="bytes">18875393136</size>
+</image>
+<image>
+<id>pok1img-7075.0</id>
+<description>ICON Build 458 - OpenSuSE11.2_medium</description>
+<size unit="bytes">37750215807</size>
+</image>
+<image>
+<id>pok1img-7073.0</id>
+<description>IUFM d13 + Director 6.3 (0080 - SLES 11 - Large)</description>
+<size unit="bytes">79465942655</size>
+</image>
+<image>
+<id>pok1img-2329.0</id>
+<description>RHEL_5u5_x86_64bit_large</description>
+<size unit="bytes">78393556211</size>
+</image>
+<image>
+<id>pok1img-8089.0</id>
+<description>Director 6.3 (CRIB 1226 - SLES 11 - Medium)</description>
+<size unit="bytes">40811236992</size>
+</image>
+<image>
+<id>pok1img-2327.0</id>
+<description>RHEL_5u5_x86_64bit_small</description>
+<size unit="bytes">18875393267</size>
+</image>
+<image>
+<id>pok1img-8088.0</id>
+<description>Director 6.3 (CRIB 1226 - RHEL 5.5 - Medium)</description>
+<size unit="bytes">39739301197</size>
+</image>
+<image>
+<id>pok1img-8087.0</id>
+<description>Director 6.3 (CRIB 1226 - RHEL 6 - Medium)</description>
+<size unit="bytes">39730971880</size>
+</image>
+<image>
+<id>pok1img-7327.0</id>
+<description>IUFM d14 + Director 6.3 (0085 - SLES 11 - Large)</description>
+<size unit="bytes">79465942655</size>
+</image>
+<image>
+<id>pok1img-8085.0</id>
+<description>Director 6.3 (CRIB 1224 - SLES 11 - Large)</description>
+<size unit="bytes">79465942656</size>
+</image>
+<image>
+<id>pok1img-1466.0</id>
+<description>Bob Demo 1 Capture</description>
+<size unit="bytes">18875393136</size>
+</image>
+<image>
+<id>pok1img-8084.0</id>
+<description>Director 6.3 (CRIB 1224 - RHEL 6 - Large)</description>
+<size unit="bytes">78385677544</size>
+</image>
+<image>
+<id>pok1img-1469.0</id>
+<description>IBM Application Creator for Business Users w/IIP - 7/21/2009
+					7-21-2009 7:42:51 7-28-2009 12:09:26</description>
+<size unit="bytes">18875393136</size>
+</image>
+<image>
+<id>pok1img-6464.0</id>
+<description>IUFM d11.1 + Director 6.3 (0071 - SLES 11 - Large)</description>
+<size unit="bytes">79465942655</size>
+</image>
+<image>
+<id>pok1img-8083.0</id>
+<description>Director 6.3 (CRIB 1224 - SLES 11 - Medium)</description>
+<size unit="bytes">40811236991</size>
+</image>
+<image>
+<id>pok1img-8082.0</id>
+<description>Director 6.3 (CRIB 1224 - RHEL 6 - Medium)</description>
+<size unit="bytes">39730971880</size>
+</image>
+<image>
+<id>pok1img-8081.0</id>
+<description>Director 6.3 (CRIB 1224 - RHEL 5.5 - Medium)</description>
+<size unit="bytes">39739301197</size>
+</image>
+<image>
+<id>pok1img-2801.0</id>
+<description>m2instance 10-20-2010 10:41:57</description>
+<size unit="bytes">77310461057</size>
+</image>
+<image>
+<id>pok1img-7336.0</id>
+<description>LRB_BVT_AUTOMATION_ericwb_hatters11a_170592_xlinux_xlinux
+				</description>
+<size unit="bytes">78394006771</size>
+</image>
+<image>
+<id>pok1img-1941.0</id>
+<description>RHEL 5 updated with Firefox</description>
+<size unit="bytes">38655730799</size>
+</image>
+<image>
+<id>pok1img-2115.0</id>
+<description>Public Configurable Application Container</description>
+<size unit="bytes">78384178396</size>
+</image>
+<image>
+<id>pok1img-8079.0</id>
+<description>CTI_ready_RHEL_mig_DB2</description>
+<size unit="bytes">39739301197</size>
+</image>
+<image>
+<id>pok1img-701.0</id>
+<description>SDM Pricing Report Enging + DB2 + WASD MediaHub with Samples
+					8-5-2009 10:33:50 3-7-2010 21:11:45 3-10-2010 17:29:01</description>
+<size unit="bytes">18875392534</size>
+</image>
+<image>
+<id>pok1img-2110.0</id>
+<description>RHEL_5u3_x86_64bit_large_KVM Chiclet Rev4</description>
+<size unit="bytes">78384178396</size>
+</image>
+<image>
+<id>pok1img-8075.0</id>
+<description>Director 6.3 (CRIB 1217 - RHEL 6 - Large)</description>
+<size unit="bytes">78385677544</size>
+</image>
+<image>
+<id>pok1img-1478.0</id>
+<description>Rational Team Concert, Standard Edition</description>
+<size unit="bytes">38655731311</size>
+</image>
+<image>
+<id>pok1img-7338.0</id>
+<description>LRB_BVT_AUTOMATION_huyonghy_hatters11a_170978_xlinux_xlinux
+				</description>
+<size unit="bytes">78394006768</size>
+</image>
+<image>
+<id>pok1img-8074.0</id>
+<description>Director 6.3 (CRIB 1217 - SLES 11 - Large)</description>
+<size unit="bytes">79465942655</size>
+</image>
+<image>
+<id>pok1img-8076.0</id>
+<description>Director 6.3 (CRIB 1217 - RHEL 5.5 Medium)</description>
+<size unit="bytes">39739301197</size>
+</image>
+<image>
+<id>pok1img-8070.0</id>
+<description>Director 6.3 (CRIB 1217 - SLES 11 - Medium)</description>
+<size unit="bytes">40811236992</size>
+</image>
+<image>
+<id>pok1img-8204.0</id>
+<description>Director 6.3 (CRIB 1252 - RHEL 5.5 - Large)</description>
+<size unit="bytes">78394006771</size>
+</image>
+<image>
+<id>pok1img-8203.0</id>
+<description>Director 6.3 (CRIB 1252 - RHEL 6 - Medium)</description>
+<size unit="bytes">39730971880</size>
+</image>
+<image>
+<id>pok1img-8206.0</id>
+<description>Director 6.3 (CRIB 1252 - SLES 11 - Medium)</description>
+<size unit="bytes">40811236988</size>
+</image>
+<image>
+<id>pok1img-8205.0</id>
+<description>Director 6.3 (CRIB 1252 - RHEL 6 - Large)</description>
+<size unit="bytes">78385677544</size>
+</image>
+<image>
+<id>pok1img-8200.0</id>
+<description>IUFM d19 + Director 6.3 (0105 - SLES 11 - Large)</description>
+<size unit="bytes">79465942656</size>
+</image>
+<image>
+<id>pok1img-7053.0</id>
+<description>IUFM d13 + Director 6.3 (CRIB 999 - SLES 11 - Large)</description>
+<size unit="bytes">79465942655</size>
+</image>
+<image>
+<id>pok1img-8101.0</id>
+<description>Director 6.3 (0103 - AIX 6.1 - Medium)</description>
+<size unit="bytes">18097203200</size>
+</image>
+<image>
+<id>pok1img-7347.0</id>
+<description>LRB_BVT_AUTOMATION_zhyingsh_hatters11a_171112_xlinux_xlinux
+				</description>
+<size unit="bytes">78394006768</size>
+</image>
+<image>
+<id>pok1img-8100.0</id>
+<description>Director 6.3 (0103 - SLES 11 - Medium)</description>
+<size unit="bytes">40811236991</size>
+</image>
+<image>
+<id>pok1img-8103.0</id>
+<description>Director 6.3 (0103 - RHEL 6 - Large)</description>
+<size unit="bytes">78385677544</size>
+</image>
+<image>
+<id>pok1img-8102.0</id>
+<description>IUFM d19 + Director 6.3 (0103 - SLES 11 - Large)</description>
+<size unit="bytes">79465942655</size>
+</image>
+<image>
+<id>pok1img-7151.0</id>
+<description>IUFM d14 + Director 6.3 (0082 - SLES 11 - Large)</description>
+<size unit="bytes">79465942655</size>
+</image>
+<image>
+<id>pok1img-1763.0</id>
+<description>RHEL_5u3_x86_64bit_medium_opensips_1.6.2-notls</description>
+<size unit="bytes">38655730799</size>
+</image>
+<image>
+<id>pok1img-7941.0</id>
+<description>Director 6.3 (CRIB 1188 - RHEL 6 - Medium)</description>
+<size unit="bytes">39730971880</size>
+</image>
+<image>
+<id>pok1img-7942.0</id>
+<description>Director 6.3 (CRIB 1188 - RHEL 6 - Large)</description>
+<size unit="bytes">78385677541</size>
+</image>
+<image>
+<id>pok1img-7940.0</id>
+<description>Director 6.3 (CRIB 1188 - RHEL 5.5 - Medium)</description>
+<size unit="bytes">39739301197</size>
+</image>
+<image>
+<id>pok1img-8106.0</id>
+<description>Director 6.3 (CRIB 1228 - RHEL 5.5 - Medium)</description>
+<size unit="bytes">39739301197</size>
+</image>
+<image>
+<id>pok1img-7946.0</id>
+<description>Director 6.3 (CRIB 1189 - RHEL 6 - Medium)</description>
+<size unit="bytes">39730971880</size>
+</image>
+<image>
+<id>pok1img-8108.0</id>
+<description>Director 6.3 (CRIB 1232 - SLES 11 - Medium)</description>
+<size unit="bytes">40811236992</size>
+</image>
+<image>
+<id>pok1img-7945.0</id>
+<description>IUFM d18 + Director 6.3 (0099 - SLES 11 - Large)</description>
+<size unit="bytes">79465942655</size>
+</image>
+<image>
+<id>pok1img-8109.0</id>
+<description>Director 6.3 (CRIB 1232 - RHEL 6 - Medium)</description>
+<size unit="bytes">39730971880</size>
+</image>
+<image>
+<id>pok1img-7943.0</id>
+<description>Director 6.3 (CRIB 1188 - RHEL 5.5 - Large)</description>
+<size unit="bytes">78394006768</size>
+</image>
+<image>
+<id>pok1img-7949.0</id>
+<description>Director 6.3 (0100 - RHEL 6 - Large)</description>
+<size unit="bytes">78385677544</size>
+</image>
+<image>
+<id>pok1img-7886.0</id>
+<description>IUFM d18 + Director 6.3 (0098 - SLES 11 - Large)</description>
+<size unit="bytes">79465942656</size>
+</image>
+<image>
+<id>pok1img-8207.0</id>
+<description>Director 6.3 (CRIB 1252 - SLES 11 - Large)</description>
+<size unit="bytes">79465942652</size>
+</image>
+<image>
+<id>pok1img-8208.0</id>
+<description>Director 6.3 (CRIB 1252 - RHEL 5.5 - Medium)</description>
+<size unit="bytes">39739301194</size>
+</image>
+<image>
+<id>pok1img-8209.0</id>
+<description>CTI_ready_SLES</description>
+<size unit="bytes">40811236991</size>
+</image>
+<image>
+<id>pok1img-2330.0</id>
+<description>RHEL_5u5_x86_64bit_medium</description>
+<size unit="bytes">39738850637</size>
+</image>
+<image>
+<id>pok1img-4587.0</id>
+<description>DIRDB (S11)- AIX_6.1 - ISD 6.2 - Derby AdvMgrs:YES, no VMC
+				</description>
+<size unit="bytes">8421120000</size>
+</image>
+<image>
+<id>pok1img-4586.0</id>
+<description>DIRDB (S5) : RHEL5.5- ISD 6.2.1 -Oracle11g2 Server</description>
+<size unit="bytes">78394006771</size>
+</image>
+<image>
+<id>pok1img-7357.0</id>
+<description>Director 6.2.1.2 (75A GM - SLES11 - VMC 2.3.1.2 90 GA)</description>
+<size unit="bytes">79465942655</size>
+</image>
+<image>
+<id>pok1img-7950.0</id>
+<description>Director 6.3 (0100 - RHEL 5.5 - Large)</description>
+<size unit="bytes">78394006771</size>
+</image>
+<image>
+<id>pok1img-2230.0</id>
+<description>RH(small) - BIRT 2.6, Apache/IBM JRE 1.5</description>
+<size unit="bytes">18875393664</size>
+</image>
+<image>
+<id>pok1img-7951.0</id>
+<description>Director 6.3 (0100 - RHEL 6 - Medium)</description>
+<size unit="bytes">39730971880</size>
+</image>
+<image>
+<id>pok1img-7952.0</id>
+<description>Director 6.3 (0100 - SLES 11 - Large)</description>
+<size unit="bytes">79465942656</size>
+</image>
+<image>
+<id>pok1img-7953.0</id>
+<description>Director 6.3 (0100 - RHEL 5.5 - Medium)</description>
+<size unit="bytes">39739301197</size>
+</image>
+<image>
+<id>pok1img-1776.0</id>
+<description>Hadoop-0.19.1 Large</description>
+<size unit="bytes">77310436463</size>
+</image>
+<image>
+<id>pok1img-7955.0</id>
+<description>Director 6.3 (0100 - AIX 6.1 - Medium)</description>
+<size unit="bytes">18030745600</size>
+</image>
+<image>
+<id>pok1img-7954.0</id>
+<description>Director 6.3 (0100 - SLES 11 - Medium)</description>
+<size unit="bytes">40811236992</size>
+</image>
+<image>
+<id>pok1img-7957.0</id>
+<description>Director 6.3 (CRIB 1191 - RHEL 6 - Medium)</description>
+<size unit="bytes">39730971880</size>
+</image>
+<image>
+<id>pok1img-7959.0</id>
+<description>Director 6.3 (CRIB 1191 - SLES 11 - Medium)</description>
+<size unit="bytes">40811236991</size>
+</image>
+<image>
+<id>pok1img-7553.0</id>
+<description>IUFM d15 + Director 6.3 (0091 - SLES 11 - Large)</description>
+<size unit="bytes">79465942655</size>
+</image>
+<image>
+<id>pok1img-1497.0</id>
+<description>New version for NERSC RHEL_5u3_x86_64bit_large for demo
+					10-29-2009 12:47:28</description>
+<size unit="bytes">77310436975</size>
+</image>
+<image>
+<id>pok1img-7898.0</id>
+<description>RHEL_5u3_x86_64bit_medium opensips 1.6.2 with mysql support
+					8-12-2010 12:51:38 10-27-2010 11:16:47 8-19-2011 9-19-2011 16:47:43
+				</description>
+<size unit="bytes">38656181375</size>
+</image>
+<image>
+<id>pok1img-2364.0</id>
+<description>RHEL_5u3_x86_64bit_small 7-6-2010 14:26:48 8-16-2010 14:55:17
+				</description>
+<size unit="bytes">18875393152</size>
+</image>
+<image>
+<id>pok1img-4259.0</id>
+<description>AIX_6106_large 2-16-2011 ISD 6.2.1 NC 1.2.2</description>
+<size unit="bytes">15084748800</size>
+</image>
+<image>
+<id>pok1img-7223.0</id>
+<description>Origami Development Sandbox 8-9-2011 13:05:11 8-9-2011
+					14:07:21</description>
+<size unit="bytes">41590583423</size>
+</image>
+<image>
+<id>pok1img-4258.0</id>
+<description>AIX_61_extra_large: STG MC4U</description>
+<size unit="bytes">5588224000</size>
+</image>
+<image>
+<id>pok1img-7220.0</id>
+<description>IUFM d14 + Director 6.3 (0083 - SLES 11 - Large)</description>
+<size unit="bytes">79465942655</size>
+</image>
+<image>
+<id>pok1img-2490.0</id>
+<description>RHEL_5u3_x86_64bit_large_WPS_Image</description>
+<size unit="bytes">77310436479</size>
+</image>
+<image>
+<id>pok1img-7360.0</id>
+<description>kvm demo - Director 6.3 (CRIB 1028 - RHEL 6 - Large) 8-8-2011
+					11:11:30 8-17-2011 8:38:38</description>
+<size unit="bytes">78385677544</size>
+</image>
+<image>
+<id>pok1img-2363.0</id>
+<description>Director 6.2 (GA) - Kick the Tires Demo</description>
+<size unit="bytes">77310436479</size>
+</image>
+<image>
+<id>pok1img-7963.0</id>
+<description>CTI_ready_AIX</description>
+<size unit="bytes">3805952000</size>
+</image>
+<image>
+<id>pok1img-7964.0</id>
+<description>IUFM d18 + Director 6.3 (0100 - SLES 11 - Large)</description>
+<size unit="bytes">79465942656</size>
+</image>
+<image>
+<id>pok1img-2222.0</id>
+<description>Rational Quality Manager Test Lab Manager 2.0.1 iFix 3 with
+					RTC Social Connector 7-29-2010 14:21:17</description>
+<size unit="bytes">77310436479</size>
+</image>
+<image>
+<id>pok1img-1787.0</id>
+<description>seng-tameb-image</description>
+<size unit="bytes">77310436463</size>
+</image>
+<image>
+<id>pok1img-7961.0</id>
+<description>Director 6.3 (CRIB 1191 - RHEL 5.5 - Large)</description>
+<size unit="bytes">78394006768</size>
+</image>
+<image>
+<id>pok1img-7960.0</id>
+<description>Director 6.3 (CRIB 1191 - SLES 11 - Large)</description>
+<size unit="bytes">79465942652</size>
+</image>
+<image>
+<id>pok1img-4551.0</id>
+<description>DIRDB (S3) Derby - ISD 6.2 AdvMgrs:YES Populated:Yes VMC No
+				</description>
+<size unit="bytes">77310887039</size>
+</image>
+<image>
+<id>pok1img-7969.0</id>
+<description>Director 6.3 (CRIB 1193 - RHEL 6 - Large)</description>
+<size unit="bytes">78385677544</size>
+</image>
+<image>
+<id>pok1img-7968.0</id>
+<description>Director 6.3 (CRIB 1193 - RHEL 6 - Medium)</description>
+<size unit="bytes">39730971880</size>
+</image>
+<image>
+<id>pok1img-7967.0</id>
+<description>Director 6.3 (CRIB 1193 - RHEL 5.5 - Medium)</description>
+<size unit="bytes">39739301197</size>
+</image>
+<image>
+<id>pok1img-7966.0</id>
+<description>Director 6.3 (CRIB 1193 - SLES 11 - Medium)</description>
+<size unit="bytes">40811236992</size>
+</image>
+<image>
+<id>pok1img-7861.0</id>
+<description>IUFM d17 + Director 6.3 (0098 - SLES 11 - Large)</description>
+<size unit="bytes">79465942655</size>
+</image>
+<image>
+<id>pok1img-7865.0</id>
+<description>CTI_ready_RHEL</description>
+<size unit="bytes">39730971880</size>
+</image>
+<image>
+<id>pok1img-7863.0</id>
+<description>CTI_ready_RHEL_Large</description>
+<size unit="bytes">78385677544</size>
+</image>
+<image>
+<id>pok1img-4253.0</id>
+<description>RHEL_5u5_x86_64bit_medium 3-7-2011 10:18:49 3-7-2011 17:08:47
+				</description>
+<size unit="bytes">39739301197</size>
+</image>
+<image>
+<id>pok1img-8213.0</id>
+<description>Director 6.3 (CRIB 1256 - RHEL 5.5 - Medium)</description>
+<size unit="bytes">39739301197</size>
+</image>
+<image>
+<id>pok1img-8212.0</id>
+<description>Director 6.3 (CRIB 1256 - RHEL 6 - Medium)</description>
+<size unit="bytes">39730971880</size>
+</image>
+<image>
+<id>pok1img-8211.0</id>
+<description>Director 6.3 (CRIB 1256 - SLES 11 - Medium)</description>
+<size unit="bytes">40811236988</size>
+</image>
+<image>
+<id>pok1img-7021.0</id>
+<description>IUFM d13 + Director 6.3 (0079 - SLES 11 - Large)</description>
+<size unit="bytes">79465942656</size>
+</image>
+<image>
+<id>pok1img-7970.0</id>
+<description>Director 6.3 (CRIB 1193 - RHEL 5.5 - Large)</description>
+<size unit="bytes">78394006771</size>
+</image>
+<image>
+<id>pok1img-7971.0</id>
+<description>Director 6.3 (CRIB 1193 - SLES 11 - Large)</description>
+<size unit="bytes">79465942655</size>
+</image>
+<image>
+<id>pok1img-4568.0</id>
+<description>DIRDB (S4) RHEL5.5 ISD 6.2.1-DB2 9.7 fp3a AdvMgrs=Yes, No VMC
+					yet</description>
+<size unit="bytes">39739301197</size>
+</image>
+<image>
+<id>pok1img-7977.0</id>
+<description>Director 6.3 (CRIB 1194 - RHEL 5.5 - Large)</description>
+<size unit="bytes">78394006771</size>
+</image>
+<image>
+<id>pok1img-1511.0</id>
+<description>SS-Test-RHEL-001 small 12-8-2009 17:56:28 12-8-2009 18:19:28
+				</description>
+<size unit="bytes">18875393136</size>
+</image>
+<image>
+<id>pok1img-7979.0</id>
+<description>Director 6.3 (CRIB 1195 - SLES 11 - Medium)</description>
+<size unit="bytes">40811236992</size>
+</image>
+<image>
+<id>pok1img-7579.0</id>
+<description>IUFM d16 + Director 6.3 (0091 - SLES 11 - Large)</description>
+<size unit="bytes">79465942655</size>
+</image>
+<image>
+<id>pok1img-7978.0</id>
+<description>Director 6.3 (CRIB 1195 - RHEL 5.5 - Medium)</description>
+<size unit="bytes">39739301197</size>
+</image>
+<image>
+<id>pok1img-4267.0</id>
+<description>BVT_AIX_6106_small</description>
+<size unit="bytes">2286899200</size>
+</image>
+<image>
+<id>pok1img-6396.0</id>
+<description>Director 6.3 (0068 - RHEL 5.5 - Large) 6-28-2011 14:25:03
+					7-6-2011 15:46:31</description>
+<size unit="bytes">78394006771</size>
+</image>
+<image>
+<id>pok1img-4265.0</id>
+<description>Director 6.2.1 (54A GM - SLES 11 - Medium)</description>
+<size unit="bytes">40811236991</size>
+</image>
+<image>
+<id>pok1img-4266.0</id>
+<description>Director 6.2.1 (54A GM - SLES 11 - Large)</description>
+<size unit="bytes">79465942655</size>
+</image>
+<image>
+<id>pok1img-4261.0</id>
+<description>SM-Director 6.2.1 GM AIX_6106_medium</description>
+<size unit="bytes">7866572800</size>
+</image>
+<image>
+<id>pok1img-7570.0</id>
+<description>xCAT image based on ISD ready image</description>
+<size unit="bytes">39730971880</size>
+</image>
+<image>
+<id>pok1img-6259.0</id>
+<description>Director-ready base image (Development SLES 11) 68 and bad NC
+				</description>
+<size unit="bytes">79465942655</size>
+</image>
+<image>
+<id>pok1img-8018.0</id>
+<description>Director 6.3 (CRIB 1207 - SLES 11 - Large)</description>
+<size unit="bytes">79465942652</size>
+</image>
+<image>
+<id>pok1img-3532.0</id>
+<description>Director 6.3 (CRIB 366 - RHEL 5.5 - Large) 1-17-2011 15:05:18
+					1-17-2011 19:10:54</description>
+<size unit="bytes">78394006771</size>
+</image>
+<image>
+<id>pok1img-8015.0</id>
+<description>Director 6.3 (CRIB 1207 - RHEL 6 - Large)</description>
+<size unit="bytes">78385677541</size>
+</image>
+<image>
+<id>pok1img-8014.0</id>
+<description>Director 6.3 (CRIB 1209 - RHEL 6 - Large)</description>
+<size unit="bytes">78385677541</size>
+</image>
+<image>
+<id>pok1img-8013.0</id>
+<description>Director 6.3 (CRIB 1209 - RHEL 5.5 - Large)</description>
+<size unit="bytes">78394006768</size>
+</image>
+<image>
+<id>pok1img-8012.0</id>
+<description>Director 6.3 (CRIB 1207 - RHEL 5.5 - Medium)</description>
+<size unit="bytes">39739301194</size>
+</image>
+<image>
+<id>pok1img-8011.0</id>
+<description>Director 6.3 (CRIB 1209 - SLES 11 - Large)</description>
+<size unit="bytes">79465942652</size>
+</image>
+<image>
+<id>pok1img-8010.0</id>
+<description>Director 6.3 (CRIB 1207 - RHEL 6 - Medium)</description>
+<size unit="bytes">39730971877</size>
+</image>
+<image>
+<id>pok1img-6511.0</id>
+<description>Static analysis base image</description>
+<size unit="bytes">77310887039</size>
+</image>
+<image>
+<id>pok1img-3530.0</id>
+<description>Image_Jomo_WasSa70_Ihs70_IhsSrv_v03</description>
+<size unit="bytes">38656181375</size>
+</image>
+<image>
+<id>pok1img-3531.0</id>
+<description>Image_Jomo_WasSa70_Ihs70_WasSrv_v03</description>
+<size unit="bytes">38656181376</size>
+</image>
+<image>
+<id>pok1img-6914.0</id>
+<description>AISWB Backup from 2369</description>
+<size unit="bytes">78394006771</size>
+</image>
+<image>
+<id>pok1img-8028.0</id>
+<description>TPC_4.2.1.185 (GA+FP04) + DB2 EE 9.7 AIX 6.1 TL6 SP2 rev:J
+					9-28-2011 17:28:05</description>
+<size unit="bytes">28665446400</size>
+</image>
+<image>
+<id>pok1img-7521.0</id>
+<description>Director-ready base image (Large RHEL 6)</description>
+<size unit="bytes">78385677541</size>
+</image>
+<image>
+<id>pok1img-5665.0</id>
+<description>RHEL_5u5_x86_64bit_large 4-8-2011 15:14:33 5-17-2011 12:04:50
+				</description>
+<size unit="bytes">78394006771</size>
+</image>
+<image>
+<id>pok1img-6916.0</id>
+<description>IUFM d13 + Director 6.3 (0077 - SLES 11 - Large) with Eco and
+					Sridhar's patches</description>
+<size unit="bytes">79465942652</size>
+</image>
+<image>
+<id>pok1img-8029.0</id>
+<description>Director 6.3 (CRIB 1211 - SLES 11 - Large)</description>
+<size unit="bytes">79465942652</size>
+</image>
+<image>
+<id>pok1img-8024.0</id>
+<description>CTI_ready_SLES</description>
+<size unit="bytes">40811236991</size>
+</image>
+<image>
+<id>pok1img-8023.0</id>
+<description>bd image</description>
+<size unit="bytes">77310887240</size>
+</image>
+<image>
+<id>pok1img-8026.0</id>
+<description>Director 6.3 (CRIB 1211 - RHEL 6 - Medium)</description>
+<size unit="bytes">39730971880</size>
+</image>
+<image>
+<id>pok1img-6266.0</id>
+<description>Director 6.2.1.2 (75A GM - RHEL 5.5 - Large) 6-23-2011 8:16:49
+					6-26-2011 22:29:29</description>
+<size unit="bytes">78394006768</size>
+</image>
+<image>
+<id>pok1img-8020.0</id>
+<description>Director 6.3 (CRIB 1207 - RHEL 5.5 - Large)</description>
+<size unit="bytes">78394006771</size>
+</image>
+<image>
+<id>pok1img-6164.0</id>
+<description>SST-EOD-MC4U-AIX61</description>
+<size unit="bytes">4536064000</size>
+</image>
+<image>
+<id>pok1img-3420.0</id>
+<description>Fedora14-desktop-large</description>
+<size unit="bytes">80245289084</size>
+</image>
+<image>
+<id>pok1img-6919.0</id>
+<description>Director 6.3 (0077 - RHEL 5.5 - Large) 7-25-2011 21:41:45
+					7-26-2011 10:23:56</description>
+<size unit="bytes">78394006771</size>
+</image>
+<image>
+<id>pok1img-7793.0</id>
+<description>IUFM d17 + Director 6.3 (0097 - SLES 11 - Large)</description>
+<size unit="bytes">79465942656</size>
+</image>
+<image>
+<id>pok1img-6272.0</id>
+<description>Director 6.3 (0067 - SLES 11 - Large) 6-27-2011 8:15:58
+					6-27-2011 15:29:41</description>
+<size unit="bytes">79465942652</size>
+</image>
+<image>
+<id>pok1img-6270.0</id>
+<description>Director 6.3 (CRIB 889 - RHEL 5.5 - Large) 6-27-2011 10:17:40
+					6-27-2011 13:20:39</description>
+<size unit="bytes">78394006768</size>
+</image>
+<image>
+<id>pok1img-3457.0</id>
+<description>mks-AIX 6.1 (Med) w/ DB2 ESE 9.7 w/SC155 1/11</description>
+<size unit="bytes">6133862400</size>
+</image>
+<image>
+<id>pok1img-3456.0</id>
+<description>AIX_61_medium (with Director getbuild)</description>
+<size unit="bytes">3246080000</size>
+</image>
+<image>
+<id>pok1img-6675.0</id>
+<description>Namita - SLES 11 - Large</description>
+<size unit="bytes">79465942655</size>
+</image>
+<image>
+<id>pok1img-7519.0</id>
+<description>IUFM d15 + Director 6.3 (0090 - SLES 11 - Large)</description>
+<size unit="bytes">79465942656</size>
+</image>
+<image>
+<id>pok1img-8001.0</id>
+<description>Director 6.3 (CRIB 1204 - SLES 11 - Large)</description>
+<size unit="bytes">79465942656</size>
+</image>
+<image>
+<id>pok1img-8004.0</id>
+<description>IUFM d19 + Director 6.3 (0101 - SLES 11 - Large)</description>
+<size unit="bytes">79465942652</size>
+</image>
+<image>
+<id>pok1img-8006.0</id>
+<description>Director 6.3 (CRIB 1209 - RHEL 5.5 - Medium)</description>
+<size unit="bytes">39739301194</size>
+</image>
+<image>
+<id>pok1img-8005.0</id>
+<description>Director 6.3 (CRIB 1209 - SLES 11 - Medium)</description>
+<size unit="bytes">40811236988</size>
+</image>
+<image>
+<id>pok1img-8008.0</id>
+<description>Director 6.3 (CRIB 1207 - SLES 11 - Medium)</description>
+<size unit="bytes">40811236991</size>
+</image>
+<image>
+<id>pok1img-4178.0</id>
+<description>IUFM delivery 4 - Director 6.3 (0031 - SLES 11 - Large)</description>
+<size unit="bytes">79465942656</size>
+</image>
+<image>
+<id>pok1img-8007.0</id>
+<description>Director 6.3 (CRIB 1209 - RHEL 6 - Medium)</description>
+<size unit="bytes">39730971877</size>
+</image>
+<image>
+<id>pok1img-7683.0</id>
+<description>IUFM d17 + Director 6.3 (0092 - SLES 11 - Large)</description>
+<size unit="bytes">79465942655</size>
+</image>
+<image>
+<id>pok1img-3644.0</id>
+<description>SVT Small AIX 6.1 Director 6.2.1 Common Agent MEP</description>
+<size unit="bytes">2191718400</size>
+</image>
+<image>
+<id>pok1img-8000.0</id>
+<description>Director 6.3 (0101 - RHEL 5.5 - Medium)</description>
+<size unit="bytes">39739301197</size>
+</image>
+<image>
+<id>pok1img-3649.0</id>
+<description>SVT Small AIX 6.1 Director 6.2.0.1 Common Agent MEP</description>
+<size unit="bytes">2102835200</size>
+</image>
+<image>
+<id>pok1img-6786.0</id>
+<description>IUFM d12 + Director 6.3 (0075 - SLES 11 - Large) patched
+				</description>
+<size unit="bytes">79465942656</size>
+</image>
+<image>
+<id>pok1img-6004.0</id>
+<description>Director 6.3 (0055 - SLES 11 - Large) 5-16-2011 9:42:49
+					6-10-2011 13:55:16</description>
+<size unit="bytes">79465942656</size>
+</image>
+<image>
+<id>pok1img-6404.0</id>
+<description>TPC_4.2.1.163 (GA+FP02) + DB2 EE 9.7 AIX 6.1 TL6 SP2
+					041111-rev:f 6-22-2011 7-06-2011</description>
+<size unit="bytes">21531084800</size>
+</image>
+<image>
+<id>pok1img-8054.0</id>
+<description>Director 6.3 (CRIB 1214 - RHEL 6 - Large)</description>
+<size unit="bytes">78385677541</size>
+</image>
+<image>
+<id>pok1img-8055.0</id>
+<description>Director 6.3 (CRIB 1214 - RHEL 5.5 - Medium)</description>
+<size unit="bytes">39739301197</size>
+</image>
+<image>
+<id>pok1img-8052.0</id>
+<description>Director 6.3 (CRIB 1212 - RHEL 6 - Large)</description>
+<size unit="bytes">78385677541</size>
+</image>
+<image>
+<id>pok1img-6821.0</id>
+<description>DIRDB (S5a) : RHEL5.5- ISD 6.2.1 -Oracle11g2 Server 7-22-2011
+					17:55:31</description>
+<size unit="bytes">78394006771</size>
+</image>
+<image>
+<id>pok1img-8053.0</id>
+<description>Director 6.3 (CRIB 1214 - SLES 11 - Medium)</description>
+<size unit="bytes">40811236992</size>
+</image>
+<image>
+<id>pok1img-8051.0</id>
+<description>Director 6.3 (CRIB 1214 - RHEL 5.5 - Large)</description>
+<size unit="bytes">78394006771</size>
+</image>
+<image>
+<id>pok1img-8058.0</id>
+<description>CTI_ready_RHEL_mig_DB2</description>
+<size unit="bytes">39739301197</size>
+</image>
+<image>
+<id>pok1img-8057.0</id>
+<description>CTI_ready_RHEL_mig_Oracle</description>
+<size unit="bytes">78394006768</size>
+</image>
+<image>
+<id>pok1img-6965.0</id>
+<description>Full 6.3 (0065 - SLES 11 - Large) 6-28-2011 13:17:01 7-27-2011
+					17:16:31</description>
+<size unit="bytes">79465942655</size>
+</image>
+<image>
+<id>pok1img-3570.0</id>
+<description>RHEL6 64Bit + tog-pegasus + libvirt-cim</description>
+<size unit="bytes">78385677544</size>
+</image>
+<image>
+<id>pok1img-1573.0</id>
+<description>Jim's Image RHEL_5u3_DB2_small 4-29-2010 11:08:23
+					4-30-2010 7:06:53</description>
+<size unit="bytes">18875393136</size>
+</image>
+<image>
+<id>pok1img-8064.0</id>
+<description>Director 6.3 (0102 - RHEL 6 - Large)</description>
+<size unit="bytes">78385677541</size>
+</image>
+<image>
+<id>pok1img-8066.0</id>
+<description>WVR_IVR_AIX_6106_medium 9-21-2011 12:34:17 9-30-2011 15:59:09
+				</description>
+<size unit="bytes">4097740800</size>
+</image>
+<image>
+<id>pok1img-8061.0</id>
+<description>Director 6.3 (CRIB 1214 - SLES 11 - Large)</description>
+<size unit="bytes">79465942655</size>
+</image>
+<image>
+<id>pok1img-1564.0</id>
+<description>RHEL_5u3_x86_64bit_large 2-4-2010 16:18:46 4-7-2010 11:40:09
+				</description>
+<size unit="bytes">77310436463</size>
+</image>
+<image>
+<id>pok1img-8067.0</id>
+<description>Director 6.3 (CRIB 1217 - RHEL 6 - Medium)</description>
+<size unit="bytes">39730971880</size>
+</image>
+<image>
+<id>pok1img-8069.0</id>
+<description>Director 6.3 (CRIB 1217 - RHEL 5.5 - Large)</description>
+<size unit="bytes">78394006771</size>
+</image>
+<image>
+<id>pok1img-4695.0</id>
+<description>Director 6.2.1.2 (67A - SLES 11 - Medium) 3-7-2011 19:40:12
+					3-28-2011 13:12:23</description>
+<size unit="bytes">40811236991</size>
+</image>
+<image>
+<id>pok1img-5569.0</id>
+<description>AIX_61_medium - 6.3 0055 + SC - ETC25- TonyD</description>
+<size unit="bytes">11047884800</size>
+</image>
+<image>
+<id>pok1img-6735.0</id>
+<description>extra large server</description>
+<size unit="bytes">77310887038</size>
+</image>
+<image>
+<id>pok1img-6530.0</id>
+<description>backup RC2v3 Search Indexer2 7-14-2011 0:35:58</description>
+<size unit="bytes">80245289084</size>
+</image>
+<image>
+<id>pok1img-1599.0</id>
+<description>RSA 7.5.5.1 WID 6.2.0.202 Linux</description>
+<size unit="bytes">77310436436</size>
+</image>
+<image>
+<id>pok1img-8032.0</id>
+<description>Director 6.3 (CRIB 1211 - SLES 11 - Medium)</description>
+<size unit="bytes">40811236991</size>
+</image>
+<image>
+<id>pok1img-8033.0</id>
+<description>Director 6.3 (CRIB 1211 - RHEL 6 - Large)</description>
+<size unit="bytes">78385677544</size>
+</image>
+<image>
+<id>pok1img-5798.0</id>
+<description>Director-ready base image (Test RHEL 5.5)</description>
+<size unit="bytes">39739301197</size>
+</image>
+<image>
+<id>pok1img-8030.0</id>
+<description>Director 6.3 (CRIB 1211 - RHEL 5.5 - Large)</description>
+<size unit="bytes">78394006768</size>
+</image>
+<image>
+<id>pok1img-8031.0</id>
+<description>Director 6.3 (CRIB 1211 - RHEL 5.5 - Medium)</description>
+<size unit="bytes">39739301197</size>
+</image>
+<image>
+<id>pok1img-6738.0</id>
+<description>IUFM d12 + Director 6.3 (0075 - SLES 11 - Large)</description>
+<size unit="bytes">79465942656</size>
+</image>
+<image>
+<id>pok1img-8036.0</id>
+<description>Director 6.3 (0102 - RHEL 5.5 - Large)</description>
+<size unit="bytes">78394006768</size>
+</image>
+<image>
+<id>pok1img-8037.0</id>
+<description>Director 6.3 (0102 - SLES 11 - Large)</description>
+<size unit="bytes">79465942655</size>
+</image>
+<image>
+<id>pok1img-8034.0</id>
+<description>Director 6.3 (CRIB 1212 - SLES 11 - Medium)</description>
+<size unit="bytes">40811236992</size>
+</image>
+<image>
+<id>pok1img-6230.0</id>
+<description>IUFM d9 + Director 6.3 (0066 - SLES 11 - Large)</description>
+<size unit="bytes">79465942652</size>
+</image>
+<image>
+<id>pok1img-8035.0</id>
+<description>Director 6.3 (0102 - AIX 6.1 - Medium)</description>
+<size unit="bytes">9218611200</size>
+</image>
+<image>
+<id>pok1img-1695.0</id>
+<description>AIX_61_small</description>
+<size unit="bytes">2482022400</size>
+</image>
+<image>
+<id>pok1img-6637.0</id>
+<description>Srikanth_agent_ftss_sles11 7-18-2011 22:04:27</description>
+<size unit="bytes">19347334271</size>
+</image>
+<image>
+<id>pok1img-8038.0</id>
+<description>Director 6.3 (0102 - RHEL 6 - Medium)</description>
+<size unit="bytes">39730971877</size>
+</image>
+<image>
+<id>pok1img-5698.0</id>
+<description>Director 6.2.1.2 (75A GM - RHEL 5.5 - Medium)</description>
+<size unit="bytes">39739301197</size>
+</image>
+<image>
+<id>pok1img-8039.0</id>
+<description>Director 6.3 (0102 - RHEL 5.5 - Medium)</description>
+<size unit="bytes">39739301197</size>
+</image>
+<image>
+<id>pok1img-1692.0</id>
+<description>RND Domino 8.5.1 without TSM TDP</description>
+<size unit="bytes">77310436463</size>
+</image>
+<image>
+<id>pok1img-5699.0</id>
+<description>Director 6.2.1.2 (75A GM - RHEL 5.5 - Large)</description>
+<size unit="bytes">78394006771</size>
+</image>
+<image>
+<id>pok1img-6633.0</id>
+<description>BigNetwork_Hadoop 0718</description>
+<size unit="bytes">77310887039</size>
+</image>
+<image>
+<id>pok1img-5794.0</id>
+<description>Director-ready base image (Development RHEL 5.5)</description>
+<size unit="bytes">78394006771</size>
+</image>
+<image>
+<id>pok1img-5795.0</id>
+<description>Director-ready base image (Medium RHEL 6)</description>
+<size unit="bytes">39730971880</size>
+</image>
+<image>
+<id>pok1img-3411.0</id>
+<description>SVT Director 6.2 Medium xLinux RHEL 5.5 + Adv. Mgr. tars
+				</description>
+<size unit="bytes">39739301197</size>
+</image>
+<image>
+<id>pok1img-3417.0</id>
+<description>Fedora14-desktop-medium</description>
+<size unit="bytes">41590583420</size>
+</image>
+<image>
+<id>pok1img-3416.0</id>
+<description>Fedora14-desktop-small</description>
+<size unit="bytes">19328828540</size>
+</image>
+<image>
+<id>pok1img-7600.0</id>
+<description>IUFM d16 + Director 6.3 (0092 - SLES 11 - Large)</description>
+<size unit="bytes">79465942655</size>
+</image>
+<image>
+<id>pok1img-8041.0</id>
+<description>Director 6.3 (CRIB 1212 - SLES 11 - Large)</description>
+<size unit="bytes">79465942652</size>
+</image>
+<image>
+<id>pok1img-6543.0</id>
+<description>IUFM d11.1 + Director 6.3 (0071 - SLES 11 - Large) v2</description>
+<size unit="bytes">79465942655</size>
+</image>
+<image>
+<id>pok1img-8043.0</id>
+<description>Director 6.3 (CRIB 1212 - RHEL 6 - Medium)</description>
+<size unit="bytes">39730971880</size>
+</image>
+<image>
+<id>pok1img-8045.0</id>
+<description>IUFM d19 + Director 6.3 (0102 - SLES 11 - Large)</description>
+<size unit="bytes">79465942652</size>
+</image>
+<image>
+<id>pok1img-8046.0</id>
+<description>Director 6.3 (0102 - SLES 11 - Medium)</description>
+<size unit="bytes">40811236992</size>
+</image>
+<image>
+<id>pok1img-8047.0</id>
+<description>Director 6.3 (CRIB 1214 - RHEL 6 - Medium)</description>
+<size unit="bytes">39730971880</size>
+</image>
+<image>
+<id>pok1img-6044.0</id>
+<description>LRB_BVT_AUTOMATION_harms_11a_crib845-A</description>
+<size unit="bytes">4118016000</size>
+</image>
+<image>
+<id>pok1img-5689.0</id>
+<description>sametime server Ira 5-16-2011 save #1</description>
+<size unit="bytes">39729923200</size>
+</image>
+<image>
+<id>pok1img-457.0</id>
+<description>jrdoran AIX_61_small 12-9-2009 18:00:43 12-9-2009 19:55:44
+				</description>
+<size unit="bytes">1955891200</size>
+</image>
+<image>
+<id>pok1img-3403.0</id>
+<description>Director 6.3 for UFM (0016 - SLES 11 - Medium + NC 1.3.0 -
+					20110105-2331)</description>
+<size unit="bytes">40811236991</size>
+</image>
+<image>
+<id>pok1img-6107.0</id>
+<description>DIRDB (S15) 6/17 - AIX_6.1 - ISD 6.2.1.2 - Derby AdvMgrs:YES,
+					VMC=static 6-17-2011 16:08:53</description>
+<size unit="bytes">11728896000</size>
+</image>
+<image>
+<id>pok1img-3683.0</id>
+<description>BVT_DEV_RHEL_55_Director_621_Large</description>
+<size unit="bytes">78394006771</size>
+</image>
+<image>
+<id>pok1img-3685.0</id>
+<description>BVT_DEV_RHEL_55_Director_621_Medium</description>
+<size unit="bytes">39739301197</size>
+</image>
+<image>
+<id>pok1img-2701.0</id>
+<description>RHEL_5u3_64bit_x86_extra_large 10-7-2010 13:49:11 10-8-2010
+					11:33:15</description>
+<size unit="bytes">77310461057</size>
+</image>
+<image>
+<id>pok1img-5874.0</id>
+<description>WAS v7 RHEL_5u3_x86_64bit 6-2-2011 9:49:29</description>
+<size unit="bytes">38656181375</size>
+</image>
+<image>
+<id>pok1img-2601.0</id>
+<description>TA Engine v13</description>
+<size unit="bytes">77310436479</size>
+</image>
+<image>
+<id>pok1img-4869.0</id>
+<description>mks - RHEL 5.5 - DB29.7GA + Director + embeddedDB2</description>
+<size unit="bytes">78394006771</size>
+</image>
+<image>
+<id>pok1img-2404.0</id>
+<description>SLES11 64bit small</description>
+<size unit="bytes">19346883708</size>
+</image>
+<image>
+<id>pok1img-2405.0</id>
+<description>SLES11 64bit medium</description>
+<size unit="bytes">40810786428</size>
+</image>
+<image>
+<id>pok1img-2406.0</id>
+<description>SLES11 64bit large</description>
+<size unit="bytes">79465492092</size>
+</image>
+<image>
+<id>pok1img-5877.0</id>
+<description>IUFM d9 + Director 6.3 (0057 - SLES 11 - Large)</description>
+<size unit="bytes">79465942652</size>
+</image>
+<image>
+<id>pok1img-5916.0</id>
+<description>weinre 2011-06-07 11:00:30</description>
+<size unit="bytes">19328828540</size>
+</image>
+<image>
+<id>pok1img-2500.0</id>
+<description>django-medium</description>
+<size unit="bytes">38655730815</size>
+</image>
+<image>
+<id>pok1img-6062.0</id>
+<description>IUFM - End of Sprint F + IUFM d9</description>
+<size unit="bytes">79465942656</size>
+</image>
+<image>
+<id>pok1img-4859.0</id>
+<description>DIRDB (S11) 4/6 - AIX_6.1 - ISD 6.2 - Derby AdvMgrs:YES, no
+					VMC 3-30-2011 8:03:38 4-6-2011 21:44:34</description>
+<size unit="bytes">8658432000</size>
+</image>
+<image>
+<id>pok1img-5330.0</id>
+<description>DIRDB (S6) RHEL 5.5 - Derby- ISD 6.2.1 AdvMgrs:YES
+					Populated:Yes VMC:Yes(Static Data)</description>
+<size unit="bytes">77310887039</size>
+</image>
+<image>
+<id>pok1img-5475.0</id>
+<description>Quick MEP - SLES 11 - 6.2 Platform Agent</description>
+<size unit="bytes">40811236991</size>
+</image>
+<image>
+<id>pok1img-5721.0</id>
+<description>LRB_BVT_AUTOMATION_andynguy_11a_lrb_165007_xlinux</description>
+<size unit="bytes">77310887039</size>
+</image>
+<image>
+<id>pok1img-6724.0</id>
+<description>RHEL6 64Bit medium for X10DT/PAMI testing 7-20-2011 9:15:25
+				</description>
+<size unit="bytes">39730971880</size>
+</image>
+<image>
+<id>pok1img-8199.0</id>
+<description>TPC_4.2.1.174 + DB2 EE 9.7 AIX 6.1 TL6 SP2 041111-rev:e
+					6-22-2011 6-23-2011 11:07:37 10-10-2011 18:10:41</description>
+<size unit="bytes">22063769600</size>
+</image>
+<image>
+<id>pok1img-5447.0</id>
+<description>Image and HC - WAS 7.0.0.15</description>
+<size unit="bytes">38656181376</size>
+</image>
+<image>
+<id>pok1img-6075.0</id>
+<description>SSM-ESA JBE</description>
+<size unit="bytes">39739301197</size>
+</image>
+<image>
+<id>pok1img-8193.0</id>
+<description>Director 6.3 (CRIB 1247 - RHEL 6 - Large)</description>
+<size unit="bytes">78385677544</size>
+</image>
+<image>
+<id>pok1img-6076.0</id>
+<description>IUFM d9 + Director 6.3 (0064 - SLES 11 - Large)</description>
+<size unit="bytes">79465942655</size>
+</image>
+<image>
+<id>pok1img-8194.0</id>
+<description>Director 6.3 (CRIB 1246 - SLES 11 - Large)</description>
+<size unit="bytes">79465942652</size>
+</image>
+<image>
+<id>pok1img-3595.0</id>
+<description>SLES11 64bit large</description>
+<size unit="bytes">79465942655</size>
+</image>
+<image>
+<id>pok1img-8191.0</id>
+<description>Director 6.3 (CRIB 1246 - RHEL 5.5 - Medium)</description>
+<size unit="bytes">39739301197</size>
+</image>
+<image>
+<id>pok1img-8192.0</id>
+<description>Director 6.3 (CRIB 1246 - RHEL 6 - Medium)</description>
+<size unit="bytes">39730971877</size>
+</image>
+<image>
+<id>pok1img-4845.0</id>
+<description>Director 6.2.1 (54A GM+VNC - RHEL 5.5 - Medium) 3-24-2011
+					17:38:04 4-6-2011 16:12:25</description>
+<size unit="bytes">39739301197</size>
+</image>
+<image>
+<id>pok1img-8197.0</id>
+<description>Director 6.3 (CRIB 1246 - RHEL 6 - Large)</description>
+<size unit="bytes">78385677541</size>
+</image>
+<image>
+<id>pok1img-8198.0</id>
+<description>Director 6.3 (CRIB 1246 - RHEL 5.5 - Large)</description>
+<size unit="bytes">78394006771</size>
+</image>
+<image>
+<id>pok1img-8195.0</id>
+<description>Director 6.3 (CRIB 1246 - SLES 11 - Medium)</description>
+<size unit="bytes">40811236988</size>
+</image>
+<image>
+<id>pok1img-8196.0</id>
+<description>Director 6.3 (CRIB 1247 - RHEL 5.5 - Large)</description>
+<size unit="bytes">78394006771</size>
+</image>
+<image>
+<id>pok1img-6987.0</id>
+<description>IUFM d13 + Director 6.3 (0078 - SLES 11 - Large)</description>
+<size unit="bytes">79465942655</size>
+</image>
+<image>
+<id>pok1img-4840.0</id>
+<description>DIRDB (S13) AIX 6.1- ISD 6.2.1 - Oracle 11g2 server- Medium
+				</description>
+<size unit="bytes">13972940800</size>
+</image>
+<image>
+<id>pok1img-5856.0</id>
+<description>Nests 5-31-2011 14:49:40</description>
+<size unit="bytes">77310887551</size>
+</image>
+<image>
+<id>pok1img-3393.0</id>
+<description>RHEL6 64Bit large</description>
+<size unit="bytes">78385677522</size>
+</image>
+<image>
+<id>pok1img-3392.0</id>
+<description>RHEL6 64Bit medium</description>
+<size unit="bytes">39730971858</size>
+</image>
+<image>
+<id>pok1img-5857.0</id>
+<description>Director 6.3 (0060 - RHEL 5.5 - Medium) 5-31-2011 11:15:57
+					5-31-2011 17:23:16</description>
+<size unit="bytes">39739301194</size>
+</image>
+<image>
+<id>pok1img-3789.0</id>
+<description>SLES11+JDK6+ICON 64bit medium</description>
+<size unit="bytes">40811236991</size>
+</image>
+<image>
+<id>pok1img-3981.0</id>
+<description>DIRDB -RHEL 5.5 - ISD 6.2 - DB2 9.5 fp5 WSE</description>
+<size unit="bytes">77310887039</size>
+</image>
+<image>
+<id>pok1img-4976.0</id>
+<description>MainldapSLES11 SP1 32bit Medium 3-31-2011 17:15:08 4-14-2011
+					9:50:14</description>
+<size unit="bytes">40811236991</size>
+</image>
+<image>
+<id>pok1img-3999.0</id>
+<description>RHEL_5u3_x86_64bit_8gb 7-19-2010 12:53:17 7-19-2010 17:44:48
+					7-19-2010 17:51:30 7-19-2010 18:27:22 7-19-2010 2-22-2011 22:49:02
+				</description>
+<size unit="bytes">77310887242</size>
+</image>
+<image>
+<id>pok1img-2716.0</id>
+<description>BVT_RHEL_53_Legacy_Agent</description>
+<size unit="bytes">18875417728</size>
+</image>
+<image>
+<id>pok1img-2715.0</id>
+<description>BVT_RHEL_53_Director_62</description>
+<size unit="bytes">77310461055</size>
+</image>
+<image>
+<id>pok1img-3388.0</id>
+<description>RHEL6 64Bit small</description>
+<size unit="bytes">18875843794</size>
+</image>
+<image>
+<id>pok1img-3589.0</id>
+<description>IBMRemoteServer</description>
+<size unit="bytes">18875843827</size>
+</image>
+<image>
+<id>pok1img-3381.0</id>
+<description>Image_JOMO_WasSa70_Ihs70_Db2Srv_v01</description>
+<size unit="bytes">38656181375</size>
+</image>
+<image>
+<id>pok1img-2518.0</id>
+<description>RHEL_5u3_x86_64bit_large TAEngine-13</description>
+<size unit="bytes">77310436479</size>
+</image>
+<image>
+<id>pok1img-5749.0</id>
+<description>Director 6.2.1.2 (75A GM - SLES 11 - Large)</description>
+<size unit="bytes">79465942655</size>
+</image>
+<image>
+<id>pok1img-4778.0</id>
+<description>Director_Lite 6.3_new (0035 - RHEL 5.5 - Medium) 3-15-2011
+					12:07:38 3-24-2011 14:00:33 3-29-2011 12:43:02 4-1-2011 17:41:58
+				</description>
+<size unit="bytes">39739301197</size>
+</image>
+<image>
+<id>pok1img-2646.0</id>
+<description>TA Engine - cloud runner v1</description>
+<size unit="bytes">39738850637</size>
+</image>
+<image>
+<id>pok1img-6099.0</id>
+<description>DIRDB (S8) RHEL 5.5 ISD 6.2.1.2 -DB2 9.7fp2 client configured
+					- 6212 data saved on image and server - System Pool on</description>
+<size unit="bytes">77310887040</size>
+</image>
+<image>
+<id>pok1img-5428.0</id>
+<description>RHEL_5u3_DB2_Large</description>
+<size unit="bytes">78393556080</size>
+</image>
+<image>
+<id>pok1img-6091.0</id>
+<description>KVM64-CodeStudy</description>
+<size unit="bytes">78384628975</size>
+</image>
+<image>
+<id>pok1img-2745.0</id>
+<description>nodejs demo for social software programmers lunch series
+				</description>
+<size unit="bytes">38655755391</size>
+</image>
+<image>
+<id>pok1img-2746.0</id>
+<description>RHEL_5u3_64bit_x86_extra_large 10-7-2010 13:49:11 10-8-2010
+					11:33:15 10-13-2010 14:24:23 10-14-2010 16:18:07</description>
+<size unit="bytes">77310461057</size>
+</image>
+<image>
+<id>pok1img-6292.0</id>
+<description>IUFM d9 + Director 6.3 (0068 - SLES 11 - Large)</description>
+<size unit="bytes">79465942655</size>
+</image>
+<image>
+<id>pok1img-3072.0</id>
+<description>Director 621 GM + DB2 + AEM 431 GM RHEL 5.5</description>
+<size unit="bytes">39739301197</size>
+</image>
+<image>
+<id>pok1img-4722.0</id>
+<description>DIRDB (S2) RHEL 5.5 - ISD 6.2 - DB2 9.5 fp5 WSE (NO VIOS)
+				</description>
+<size unit="bytes">77310887039</size>
+</image>
+<image>
+<id>pok1img-2096.0</id>
+<description>RHEL_5u3_x86_64bit_medium opensips 1.6.2 with TLS</description>
+<size unit="bytes">38655730799</size>
+</image>
+<image>
+<id>pok1img-5835.0</id>
+<description>IUFM d8 + Director 6.3 (0057 - SLES 11 - Large)</description>
+<size unit="bytes">79465942655</size>
+</image>
+<image>
+<id>pok1img-6193.0</id>
+<description>IUFM d9 + Director 0066 for FVT</description>
+<size unit="bytes">79465942655</size>
+</image>
+<image>
+<id>pok1img-6194.0</id>
+<description>AllaCCMPDevEnvAbstrLocalDB</description>
+<size unit="bytes">77310887039</size>
+</image>
+<image>
+<id>pok1img-6196.0</id>
+<description>DirLite Dir6.3 (0065 - SLES 11 - Large) 6-20-2011 19:39:06
+					6-23-2011 0:02:13</description>
+<size unit="bytes">79465942655</size>
+</image>
+<image>
+<id>pok1img-4896.0</id>
+<description>RHEL_5u3_64bit_x86_extra_large Granger 3-4-2011 10:44:43
+					4-8-2011 15:01:54</description>
+<size unit="bytes">77310887041</size>
+</image>
+<image>
+<id>pok1img-2737.0</id>
+<description>BVT_RHEL_53_64bit_clean_small</description>
+<size unit="bytes">18875417728</size>
+</image>
+<image>
+<id>pok1img-5628.0</id>
+<description>AIX_6106_large 5-16-2011 ISD 6.2.1.2</description>
+<size unit="bytes">14266060800</size>
+</image>
+<image>
+<id>pok1img-2633.0</id>
+<description>BVT_RHEL_53_clean_small</description>
+<size unit="bytes">18875393152</size>
+</image>
+<image>
+<id>pok1img-4619.0</id>
+<description>PBC_Bank_5u3_x86_64_medium with Java and Eclipse 8-21-2009
+					18:25:27 3-25-2011 10:52:18</description>
+<size unit="bytes">38655731311</size>
+</image>
+<image>
+<id>pok1img-3465.0</id>
+<description>Fedora14-desktop-large-libguestfs</description>
+<size unit="bytes">80245289290</size>
+</image>
+<image>
+<id>pok1img-4991.0</id>
+<description>DIRDB (S11) 4/6 - AIX_6.1 - ISD 6.2 - Derby AdvMgrs:YES,
+					VMC=static</description>
+<size unit="bytes">8633856000</size>
+</image>
+<image>
+<id>pok1img-3461.0</id>
+<description>Director6.3_DB2_StorageContorl-4.2.1.155_RHEL_5u3_x86_64bit_large
+					1-12-2011</description>
+<size unit="bytes">77310887039</size>
+</image>
+<image>
+<id>pok1img-4711.0</id>
+<description>Director 6.2.1.2 (67A - SLES 11 - Medium) 3-7-2011 19:40:12
+					3-28-2011 13:12:23 3-28-2011 15:58:42 3-29-2011 9:31:47</description>
+<size unit="bytes">40811236991</size>
+</image>
+<image>
+<id>pok1img-3879.0</id>
+<description>AIX_6106_xsmall</description>
+<size unit="bytes">2261708800</size>
+</image>
+<image>
+<id>pok1img-4610.0</id>
+<description>IUFM d6 + Director 6.3 (0037 - SLES 11 - Large)</description>
+<size unit="bytes">79465942655</size>
+</image>
+<image>
+<id>pok1img-4890.0</id>
+<description>DIRDB (S14) 4/7am - AIX 6.1 - DB2 9.7GA server</description>
+<size unit="bytes">12329625600</size>
+</image>
+<image>
+<id>pok1img-4612.0</id>
+<description>Director 6.2.1 (54A GM - AIX 6.1 - Medium) 3-7-2011 11:07:38
+					3-15-2011 21:09:18 3-21-2011 17:35:13 3-24-2011 18:33:46</description>
+<size unit="bytes">16640460800</size>
+</image>
+<image>
+<id>pok1img-3881.0</id>
+<description>AIX_6106_medium</description>
+<size unit="bytes">2261708800</size>
+</image>
+<image>
+<id>pok1img-3880.0</id>
+<description>AIX_6106_small</description>
+<size unit="bytes">2261708800</size>
+</image>
+<image>
+<id>pok1img-3883.0</id>
+<description>AIX_6106_extra_large</description>
+<size unit="bytes">2261708800</size>
+</image>
+<image>
+<id>pok1img-3882.0</id>
+<description>AIX_6106_large</description>
+<size unit="bytes">2261708800</size>
+</image>
+<image>
+<id>pok1img-4740.0</id>
+<description>SST-MC4U-AIX61</description>
+<size unit="bytes">5866188800</size>
+</image>
+<image>
+<id>pok1img-2760.0</id>
+<description>RHEL_large_with_hadoop</description>
+<size unit="bytes">77310461055</size>
+</image>
+<image>
+<id>pok1img-3495.0</id>
+<description>Image_Jomo_WasSa70_Ihs70_Db2Wse95_IhsSrv_v02</description>
+<size unit="bytes">38656181375</size>
+</image>
+<image>
+<id>pok1img-3496.0</id>
+<description>Image_Jomo_WasSa70_Ihs70_Db2Wse95_WasSrv_v02</description>
+<size unit="bytes">38656181375</size>
+</image>
+<image>
+<id>pok1img-5712.0</id>
+<description>hadoop_for_exascale_team 4-11-2011 14:27:10 5-4-2011 16:52:54
+					5-11-2011 15:28:23 5-11-2011 16:11:01 5-19-2011 5-19-2011 13:41:00
+				</description>
+<size unit="bytes">77310887036</size>
+</image>
+<image>
+<id>pok1img-5812.0</id>
+<description>Working 55 with ITNM</description>
+<size unit="bytes">79465942656</size>
+</image>
+<image>
+<id>pok1img-3886.0</id>
+<description>RHEL_5u3_64bit_x86_extra_large_cluster_master</description>
+<size unit="bytes">77310887041</size>
+</image>
+<image>
+<id>pok1img-4604.0</id>
+<description>DIRDB (S14) - AIX 6.1 - DB2 9.7GA server</description>
+<size unit="bytes">12285440000</size>
+</image>
+<image>
+<id>pok1img-5300.0</id>
+<description>Director 6.3 (CRIB 667 - RHEL 5.5 - Large) 4-22-2011 12:23:37
+					5-2-2011 14:05:44</description>
+<size unit="bytes">78394006771</size>
+</image>
+<image>
+<id>pok1img-3887.0</id>
+<description>RHEL_5u3_64bit_x86_extra_large_cluster_slave</description>
+<size unit="bytes">77310887041</size>
+</image>
+<image>
+<id>pok1img-3749.0</id>
+<description>SLES11 64bit small with JDK 1.6.0</description>
+<size unit="bytes">19347334271</size>
+</image>
+<image>
+<id>pok1img-5719.0</id>
+<description>Director 6.2.1.2 (75A GM - SLES 11 - Medium)</description>
+<size unit="bytes">40811236988</size>
+</image>
+<image>
+<id>pok1img-5106.0</id>
+<description>BVT_SLES11_64bit_clean_small 4-6-2011 10:06:25 4-21-2011
+					12:04:29</description>
+<size unit="bytes">19347334272</size>
+</image>
+<image>
+<id>pok1img-2610.0</id>
+<description>PAMI Devel. Image 2 9-24-2010 10:41:23 9-24-2010 11:49:03
+				</description>
+<size unit="bytes">2813184000</size>
+</image>
+<image>
+<id>pok1img-3890.0</id>
+<description>mks-Director-6.2.1.1+DB29.7ESE_GA+SC4.2.1_a-RHEL5.5</description>
+<size unit="bytes">78394006771</size>
+</image>
+<image>
+<id>pok1img-2611.0</id>
+<description>RHEL_5u3_x86_64bit_8gb 7-19-2010 12:53:17 7-19-2010 17:44:48
+					7-19-2010 17:51:30 7-19-2010 18:27:22 7-19-2010 9-24-2010 13:39:58
+				</description>
+<size unit="bytes">77310436479</size>
+</image>
+<image>
+<id>pok1img-2759.0</id>
+<description>m2instance 10-15-2010 14:01:28</description>
+<size unit="bytes">77310461058</size>
+</image>
+<image>
+<id>pok1img-5110.0</id>
+<description>BVT_RHEL_53_clean_small</description>
+<size unit="bytes">18875843712</size>
+</image>
+<image>
+<id>pok1img-5419.0</id>
+<description>BlackBelt Final</description>
+<size unit="bytes">77310887039</size>
+</image>
+<image>
+<id>pok1img-2752.0</id>
+<description>m2instance 10-14-2010 22:38:48</description>
+<size unit="bytes">77310461057</size>
+</image>
+<image>
+<id>pok1img-3480.0</id>
+<description>Image_JOMO_WasSa70_Ihs70_Db2Wse95_Db2Srv_v01</description>
+<size unit="bytes">38656181375</size>
+</image>
+<image>
+<id>pok1img-3752.0</id>
+<description>Director 6.3 (CRIB 398 - RHEL 5.5 - Medium) 1-25-2011 + VMC
+					2.4 bld 1436 + curr 22: 2-3-2011 21:09:45 Monarch</description>
+<size unit="bytes">39739301197</size>
+</image>
+<image>
+<id>pok1img-3080.0</id>
+<description>Director 6.2.1 (54A GM - AIX 6.1 - Medium)</description>
+<size unit="bytes">15551078400</size>
+</image>
+<image>
+<id>pok1img-3899.0</id>
+<description>RHEL_5u3_x86_64bit_medium RPT 2-16-2011 17:15:11</description>
+<size unit="bytes">38656181376</size>
+</image>
+</images>
+<vms>
+<vm>
+<image type="random"/>
+<ram>1</ram>
+<count>177</count>
+</vm>
+<vm>
+<image type="random"/>
+<ram>2</ram>
+<count>643</count>
+</vm>
+<vm>
+<image type="random"/>
+<ram>6</ram>
+<count>920</count>
+</vm>
+</vms>
+</experiment>

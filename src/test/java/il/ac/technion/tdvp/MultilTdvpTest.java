@@ -15,7 +15,6 @@ import il.ac.technion.tdvp.MultiTDVP.MtdvpSolution;
 import il.ac.technion.tdvp.TDVP.Solution;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -62,7 +61,6 @@ public class MultilTdvpTest {
 		List<Host> hosts = conf.getHosts();
 		Map<Integer, VM> vms = conf.getId2VmMap();
 		Map<Image, List<VM>> im2vms = conf.getImageMap();
-		List<Image> images = new ArrayList<Image>(im2vms.keySet());
 		
 		int[] vArr = new int[hosts.size()];
 		int[] cArr = new int[hosts.size()];
@@ -73,14 +71,14 @@ public class MultilTdvpTest {
 		}
 		
 		int M = im2vms.keySet().size();
-		int[] imVmCount = CouplingUtils.imageVmsCount(images,im2vms);
+		int[] imVmCount = CouplingUtils.imageVmsCount(im2vms);
 		int[][] imSz = new int[2][];
 		imSz[0] = CouplingUtils.imageSizes(im2vms.keySet());
 		imSz[1] = imSz[0];
 		int max_Nk = maxValue(imVmCount);
-		int[][] vmSz = CouplingUtils.vmSizes(M, max_Nk, images, im2vms);
+		int[][] vmSz = CouplingUtils.vmSizes(M, max_Nk, im2vms);
 		int[][] vmPr = CouplingUtils.vmProfits(M, max_Nk, im2vms);
-		int[][] ids = CouplingUtils.vmIds(M, max_Nk, images, im2vms);
+		int[][] ids = CouplingUtils.vmIds(M, max_Nk, im2vms);
 		MtdvpSolution sol = mtdvp.solve(vArr, cArr, vmSz, vmPr, imSz, imVmCount, ids);
 
 		assignSolution(sol.assignments,hosts,vms);
