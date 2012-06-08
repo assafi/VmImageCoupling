@@ -37,16 +37,17 @@ public class LS {
 	private void phase1(List<Host> hosts, List<Image> images) {
 		int count = 0;
 		for (Image image : images) {
+			boolean placed = false;
 			for (Host host : hosts) {
 				if (host.canAdd(image)) {
 					host.add(image);
 					count++;
+					placed = true;
 					break;
 				}
 			}
-		}
-		if (count != images.size()) {
-			throw new RuntimeException("Could not complete phase 1 (Image placement)");
+			if (!placed)
+				throw new RuntimeException("Could not complete phase 1 (Image placement). Could not place " + image);
 		}
 		
 		logger.info("===== End of phase 1 =====");
@@ -76,7 +77,6 @@ public class LS {
 		assignSolution(sol.assignments,hosts,vms,im2vms);
 	}
 
-	//todo: hosts should be an ArrayList
 	private void phase3(List<Host> hosts, Map<Image, List<VM>> im2vms, Map<Integer, VM> id2vmMap) {
 		logger.info("===== Start of phase 3 =====");
 		logger.info("Number of local VMs at start of phase: " + countLocal(hosts));
@@ -125,9 +125,10 @@ public class LS {
 				}
 				int base = maxHost1.numVMs() + maxHost2.numVMs();
 				int diff = maxSolution.profit - base;
-				logger.debug("Current improvement: " + diff + ", Current improvement at hosts: " + maxHost1.id + " & " + maxHost2.id + ", #Local VMs: " + countLocal(hosts));
+				logger.info("Current improvement: " + diff + ", Current improvement at hosts: " + maxHost1.id + " & " + maxHost2.id + ", #Local VMs: " + countLocal(hosts));
 				assignImprovement(maxHost1,maxHost2,maxSolution, id2vmMap);
 				cache.invalidateEntry(maxI, maxJ);
+				if (maxHost1.numVMs() + maxHost2.numVMs() != maxSolution.profit) throw new RuntimeException(maxHost1.numVMs() + maxHost2.numVMs() + " != " + maxSolution.profit);
 			}
 		}
 	}
@@ -145,10 +146,10 @@ public class LS {
 		maxHost1.reset();
 		maxHost2.reset();
 		for (int id : maxSolution.assignments[0].ids) {
-			maxHost1.add(id2vmMap.get(id));
+			if (!maxHost1.add(id2vmMap.get(id))) throw new RuntimeException("Unable to assign VM " + id2vmMap.get(id) + " to host: " + maxHost1);
 		}
 		for (int id : maxSolution.assignments[1].ids) {
-			maxHost2.add(id2vmMap.get(id));
+			if (!maxHost2.add(id2vmMap.get(id))) throw new RuntimeException("Unable to assign VM " + id2vmMap.get(id) + " to host: " + maxHost2);
 		}
 	}
 

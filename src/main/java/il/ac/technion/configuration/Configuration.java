@@ -42,8 +42,11 @@ public class Configuration {
 	
 	private int totalImgSize = 0;
 	private int totalHostStorage = 0;
+	private int totalVmSize = 0;
+	private int totalHostRAM = 0;
 
 	private Random random = new Random(System.currentTimeMillis());
+
 
 	public Configuration(String setupFilePath) throws IOException,
 			ConfigurationException {
@@ -83,6 +86,10 @@ public class Configuration {
 		vms = getVMs(doc, xpath);
 		
 		filterUnusedImages();
+		System.out.println("Total Host storage: " + totalHostStorage);
+		System.out.println("Total Image size: " + totalImgSize);
+		System.out.println("Total Host RAM: " + totalHostRAM);
+		System.out.println("Total VM size: " + totalVmSize);
 	}
 
 	private void filterUnusedImages() {
@@ -116,13 +123,13 @@ public class Configuration {
 				}
 				
 				totalHostStorage += count * storageCapacity;
+				totalHostRAM += count * ramCapacity;
 			}
 
 		} catch (XPathExpressionException e) {
 			throw new ConfigurationException(e);
 		}
 		
-		System.out.println("Total Host storage: " + totalHostStorage);
 		return $;
 	}
 
@@ -157,7 +164,6 @@ public class Configuration {
 			throw new ConfigurationException(e);
 		}
 		
-		System.out.println("Total Image size: " + totalImgSize);
 		return $;
 	}
 
@@ -189,6 +195,8 @@ public class Configuration {
 					}
 					$.add(new VM(vmId++, img, ram));
 				}
+				
+				totalVmSize += count * ram;
 			}
 
 		} catch (XPathExpressionException e) {
