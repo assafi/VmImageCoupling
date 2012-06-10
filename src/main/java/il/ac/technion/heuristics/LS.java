@@ -125,12 +125,29 @@ public class LS {
 				}
 				int base = maxHost1.numVMs() + maxHost2.numVMs();
 				int diff = maxSolution.profit - base;
+				cache.invalidateEntry(maxI, maxJ);
+				if (diff <= 0) continue;
 				logger.info("Current improvement: " + diff + ", Current improvement at hosts: " + maxHost1.id + " & " + maxHost2.id + ", #Local VMs: " + countLocal(hosts));
 				assignImprovement(maxHost1,maxHost2,maxSolution, id2vmMap);
-				cache.invalidateEntry(maxI, maxJ);
-				if (maxHost1.numVMs() + maxHost2.numVMs() != maxSolution.profit) throw new RuntimeException(maxHost1.numVMs() + maxHost2.numVMs() + " != " + maxSolution.profit);
+				if (maxHost1.numVMs() + maxHost2.numVMs() != maxSolution.profit) 
+					throw new RuntimeException(maxHost1.numVMs() + maxHost2.numVMs() + " != " + maxSolution.profit);
 			}
 		}
+		
+		logger.info("==== Phase 3 Completed =====");
+		if (!im2vms.isEmpty()) {
+			logger.info("Incomplete assignment. Local VMs: " + countLocal(hosts) + ", Total VMs: " + (countLocal(hosts) + countRemote(im2vms.values()) + ", Remote VMs: " + countRemote(im2vms.values())));
+		} else {
+			logger.info("Complete assignment. Total VMs (all Local): " + countLocal(hosts));
+		}
+	}
+
+	private int countRemote(Collection<List<VM>> values) {
+		int count = 0;
+		for (List<VM> list : values) {
+			count += list.size();
+		}
+		return count;
 	}
 
 	private int countLocal(List<Host> hosts) {
@@ -267,7 +284,9 @@ public class LS {
 			if (!im2vms.containsKey(vm.image)) {
 				im2vms.put(vm.image, new LinkedList<VM>());
 			}
-			im2vms.get(vm.image).add(vm);
+			if (!im2vms.get(vm.image).contains(vm)) {
+				im2vms.get(vm.image).add(vm);
+			}
 		}
 	}
 
