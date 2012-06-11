@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><experiment>
+<NumVMsFactor>1.0</NumVMsFactor>
+<StorageCapacityFactor>1.0</StorageCapacityFactor>
+<RamCapacityFactor>1.0</RamCapacityFactor>
 <hosts> <!-- Storage normalized by dividing everything by 18 -->
 <host>
 <storage>5</storage>

@@ -47,6 +47,9 @@ public class Configuration {
 
 	private Random random = new Random(System.currentTimeMillis());
 
+	private double numVmsFactor = 1.0;
+	private double storageCapacityFactor = 1.0;
+	private double ramCapacityFactor = 1.0;
 
 	public Configuration(String setupFilePath) throws IOException,
 			ConfigurationException {
@@ -81,15 +84,45 @@ public class Configuration {
 		XPathFactory xFactory = XPathFactory.newInstance();
 		XPath xpath = xFactory.newXPath();
 
+		numVmsFactor  = getNumVmsFactor(doc, xpath);
+		storageCapacityFactor = getStorageCapacityFactor(doc, xpath);
+		ramCapacityFactor = getRamCapacityFactor(doc, xpath);
 		hosts = getHosts(doc, xpath);
 		images = getImages(doc, xpath);
 		vms = getVMs(doc, xpath);
 		
 		filterUnusedImages();
-		System.out.println("Total Host storage: " + totalHostStorage);
+		System.out.println("Total Host storage: " + totalHostStorage + ", factor: " + storageCapacityFactor);
 		System.out.println("Total Image size: " + totalImgSize);
-		System.out.println("Total Host RAM: " + totalHostRAM);
+		System.out.println("Total Host RAM: " + totalHostRAM + ", factor: " + ramCapacityFactor);
 		System.out.println("Total VM size: " + totalVmSize);
+		System.out.println("Number of hosts: " + hosts.size());
+		System.out.println("Number of VMs: " + vms.size() + ", factor: " + numVmsFactor);
+	}
+
+	private double getRamCapacityFactor(Document doc, XPath xpath) throws ConfigurationException {
+		return getFactor("RamCapacityFactor", doc, xpath);
+	}
+
+	private double getStorageCapacityFactor(Document doc, XPath xpath) throws ConfigurationException {
+		return getFactor("StorageCapacityFactor", doc, xpath);
+	}
+
+	private double getNumVmsFactor(Document doc, XPath xpath) throws ConfigurationException {
+		return getFactor("NumVMsFactor",doc, xpath);
+	}
+
+	private double getFactor(String nodeName, Document doc, XPath xpath)
+			throws ConfigurationException {
+		double $ = 1.0;
+		XPathExpression expr;
+		try {
+			expr = xpath.compile("//" + nodeName);
+			$ = (Double) expr.evaluate(doc, XPathConstants.NUMBER);
+		} catch (XPathExpressionException e) {
+			throw new ConfigurationException(e);
+		}
+		return $;
 	}
 
 	private void filterUnusedImages() {
@@ -114,8 +147,8 @@ public class Configuration {
 
 			for (int i = 0; i < nl.getLength(); i++) {
 				Node rNode = nl.item(i);
-				int storageCapacity = getIntFromNode("storage", rNode);
-				int ramCapacity = getIntFromNode("ram", rNode);
+				int storageCapacity = (int)Math.round(getIntFromNode("storage", rNode) * storageCapacityFactor);
+				int ramCapacity = (int)Math.round(getIntFromNode("ram", rNode) * ramCapacityFactor);
 				int count = getIntFromNode("count", rNode);
 
 				for (int j = 0; j < count; j++) {
@@ -187,7 +220,7 @@ public class Configuration {
 					throw new ConfigurationException("Invalid image id or type");
 				}
 				int ram = getIntFromNode("ram", rNode);
-				int count = getIntFromNode("count", rNode);
+				int count = (int) Math.round(getIntFromNode("count", rNode) * numVmsFactor);
 
 				for (int j = 0; j < count; j++) {
 					if ("random".equals(imageType)) {

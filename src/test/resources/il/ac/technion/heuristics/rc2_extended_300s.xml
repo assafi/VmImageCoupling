@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <experiment>
+<NumVMsFactor>1.0</NumVMsFactor>
+<StorageCapacityFactor>1.0</StorageCapacityFactor>
+<RamCapacityFactor>1.0</RamCapacityFactor>
 <hosts>
 <host>
 <storage>250</storage>
