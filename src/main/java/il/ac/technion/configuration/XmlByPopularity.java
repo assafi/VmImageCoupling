@@ -213,18 +213,6 @@ public class XmlByPopularity {
 			
 			vmXmlDescriptions.put(updatedImId, xmlDesc.toString());
 		}
-
-		// DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-		// factory.setNamespaceAware(true);
-		// DocumentBuilder builder;
-		// Document imDoc,ipDoc;
-		// try {
-		// builder = factory.newDocumentBuilder();
-		// imDoc = builder.parse(imagesFile);
-		// ipDoc = builder.parse(imagePopularityFile);
-		// } catch (Exception e) {
-		// throw new RuntimeException(e);
-		// }
 	}
 
 	/**

@@ -27,6 +27,7 @@ import javax.xml.xpath.XPathExpression;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 
+import org.apache.log4j.Logger;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -34,6 +35,8 @@ import org.xml.sax.SAXException;
 
 public class Configuration {
 
+	private static Logger log = Logger.getLogger(Configuration.class);
+	
 	private static final String LINE_DELIM = System.getProperty("line.separator");
 
 	private List<Host> hosts;
@@ -50,6 +53,8 @@ public class Configuration {
 	private double numVmsFactor = 1.0;
 	private double storageCapacityFactor = 1.0;
 	private double ramCapacityFactor = 1.0;
+	
+	private int imageRedundancy = 1;
 
 	public Configuration(String setupFilePath) throws IOException,
 			ConfigurationException {
@@ -87,32 +92,45 @@ public class Configuration {
 		numVmsFactor  = getNumVmsFactor(doc, xpath);
 		storageCapacityFactor = getStorageCapacityFactor(doc, xpath);
 		ramCapacityFactor = getRamCapacityFactor(doc, xpath);
+		imageRedundancy = getImageRedundancy(doc, xpath);
 		hosts = getHosts(doc, xpath);
 		images = getImages(doc, xpath);
 		vms = getVMs(doc, xpath);
 		
 		filterUnusedImages();
-		System.out.println("Total Host storage: " + totalHostStorage + ", factor: " + storageCapacityFactor);
-		System.out.println("Total Image size: " + totalImgSize);
-		System.out.println("Total Host RAM: " + totalHostRAM + ", factor: " + ramCapacityFactor);
-		System.out.println("Total VM size: " + totalVmSize);
-		System.out.println("Number of hosts: " + hosts.size());
-		System.out.println("Number of VMs: " + vms.size() + ", factor: " + numVmsFactor);
+		log.info("Total Host storage: " + totalHostStorage + ", factor: " + storageCapacityFactor);
+		log.info("Total Image size: " + totalImgSize + ", redundancy: " + imageRedundancy);
+		log.info("Total Host RAM: " + totalHostRAM + ", factor: " + ramCapacityFactor);
+		log.info("Total VM size: " + totalVmSize);
+		log.info("Number of hosts: " + hosts.size());
+		log.info("Number of VMs: " + vms.size() + ", factor: " + numVmsFactor);
 	}
 
-	private double getRamCapacityFactor(Document doc, XPath xpath) throws ConfigurationException {
+	private static int getImageRedundancy(Document doc, XPath xpath) throws ConfigurationException {
+		Double $ = 1.0;
+		XPathExpression expr;
+		try {
+			expr = xpath.compile("//image_redundancy");
+			$ = (Double) expr.evaluate(doc, XPathConstants.NUMBER);
+		} catch (XPathExpressionException e) {
+			throw new ConfigurationException(e);
+		}
+		return $.intValue() == 0 ? 1 : $.intValue();
+	}
+
+	private static double getRamCapacityFactor(Document doc, XPath xpath) throws ConfigurationException {
 		return getFactor("RamCapacityFactor", doc, xpath);
 	}
 
-	private double getStorageCapacityFactor(Document doc, XPath xpath) throws ConfigurationException {
+	private static double getStorageCapacityFactor(Document doc, XPath xpath) throws ConfigurationException {
 		return getFactor("StorageCapacityFactor", doc, xpath);
 	}
 
-	private double getNumVmsFactor(Document doc, XPath xpath) throws ConfigurationException {
+	private static double getNumVmsFactor(Document doc, XPath xpath) throws ConfigurationException {
 		return getFactor("NumVMsFactor",doc, xpath);
 	}
 
-	private double getFactor(String nodeName, Document doc, XPath xpath)
+	private static double getFactor(String nodeName, Document doc, XPath xpath)
 			throws ConfigurationException {
 		double $ = 1.0;
 		XPathExpression expr;
@@ -220,7 +238,13 @@ public class Configuration {
 					throw new ConfigurationException("Invalid image id or type");
 				}
 				int ram = getIntFromNode("ram", rNode);
-				int count = (int) Math.round(getIntFromNode("count", rNode) * numVmsFactor);
+				
+				int count;
+				if (numVmsFactor == 1.0) {
+					count = getIntFromNode("count", rNode); // Avoiding rounding errors
+				} else {
+					count = (int) Math.round(getIntFromNode("count", rNode) * numVmsFactor);
+				}
 
 				for (int j = 0; j < count; j++) {
 					if ("random".equals(imageType)) {
@@ -368,5 +392,12 @@ public class Configuration {
 			$.get(vm.image).add(vm);
 		}
 		return $;
+	}
+
+	/**
+	 * @return Image redundancy 
+	 */
+	public int getImageRedundancy() {
+		return imageRedundancy;
 	}
 }

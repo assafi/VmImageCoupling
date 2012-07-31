@@ -20,13 +20,15 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.Set;
 
 import org.apache.log4j.Logger;
 
-public class LS {
+public class Greedy {
 
-	private static Logger logger = Logger.getLogger(LS.class);
+	private static final int COUNTER_LIMIT = 20;
+	private static Logger logger = Logger.getLogger(Greedy.class);
 
 	public SimulationResults solve(List<Host> hosts, List<Image> images,
 			Map<Image, List<VM>> im2vms, Map<Integer, VM> id2vmMap,
@@ -92,29 +94,44 @@ public class LS {
 			Map<Integer, VM> id2vmMap, int imageRedundancy, SimulationResults sr) {
 		logger.info("===== Start of phase 3 =====");
 		logger.info("Number of local VMs at start of phase: " + countLocal(hosts));
-		boolean changed = true;
 		
-		while (changed && !im2vms.isEmpty()) {
-			changed = false;
-			for (int i = 0; i < hosts.size(); i++) {
-				Host host1 = hosts.get(i);
-				for (int j = i + 1; j < hosts.size(); j++) {
-					Host host2 = hosts.get(j);
-					int base = host1.numVMs() + host2.numVMs();
-
-					MtdvpSolution solution = calcImprovement(host1, host2, im2vms,
-							imageRedundancy);
-
-					if (solution != null && solution.profit - base > 0) {
-						logger.info("Current improvement: " + (solution.profit - base)
-								+ ", Current improvement at hosts: " + host1.id + " & "
-								+ host2.id + ", #Local VMs: " + countLocal(hosts));
-						assignImprovement(host1, host2, solution, id2vmMap, im2vms);
-						changed = true;
-					}
-
-				}
+		Random random = new Random();
+		int breakCounter = COUNTER_LIMIT;
+		while (!im2vms.isEmpty() && breakCounter != 0) {
+			int i = random.nextInt(hosts.size());
+			int j = i;
+			while (j == i) {
+				j = random.nextInt(hosts.size());
 			}
+			Host host1 = hosts.get(i);
+			Host host2 = hosts.get(j);
+			
+			int base = host1.numVMs() + host2.numVMs();
+			reportVMs("Before calculation. ",hosts,im2vms);
+			MtdvpSolution solution = calcImprovement(host1, host2, im2vms, imageRedundancy, base);
+			reportVMs("After calculation. ",hosts,im2vms);
+			if (solution == null)
+				continue;
+			int diff = solution.profit - base;
+			if (diff <= 0) {
+				breakCounter--;
+				if (breakCounter == 0) {
+					break;
+				}
+				continue;
+			}
+
+			logger.info("Current improvement: " + diff
+					+ ", Current improvement at hosts: " + host1.id + " & "
+					+ host2.id + ", #Local VMs: " + countLocal(hosts));
+			sr.greedyImprovement += diff;
+			assignImprovement(host1, host2, solution, id2vmMap, im2vms);
+			reportVMs("After assignment. ",hosts,im2vms);
+			if (host1.numVMs() + host2.numVMs() != solution.profit)
+				throw new RuntimeException(host1.numVMs() + host2.numVMs()
+						+ " != " + solution.profit);
+
+			breakCounter = COUNTER_LIMIT;
 		}
 
 		sr.localCount = countLocal(hosts);
@@ -125,15 +142,25 @@ public class LS {
 		if (!im2vms.isEmpty()) {
 			logger.info("Incomplete assignment. Local VMs: "
 					+ countLocal(hosts)
-					+ ", Total VMs: "
-					+ (countLocal(hosts) + countRemote(im2vms.values())
-							+ ", Remote VMs: " + countRemote(im2vms.values())));
+					+ ", Remote VMs: " + countRemote(im2vms.values())
+					+ ", Total VMs: "	+ (countLocal(hosts) + countRemote(im2vms.values())));
 		} else {
 			logger.info("Complete assignment. Total VMs (all Local): "
 					+ countLocal(hosts));
 		}
 		
 		return sr;
+	}
+
+
+	/**
+	 * @param message
+	 * @param hosts
+	 * @param im2vms
+	 */
+	private void reportVMs(String message, List<Host> hosts,
+			Map<Image, List<VM>> im2vms) {
+		logger.debug(message + "Num locals: " + countLocal(hosts) + ", Num remotes: " + countRemote(im2vms.values()));
 	}
 
 	private int countRemote(Collection<List<VM>> values) {
@@ -153,8 +180,7 @@ public class LS {
 	}
 
 	private void assignImprovement(Host host1, Host host2,
-			MtdvpSolution maxSolution, Map<Integer, VM> id2vmMap,
-			Map<Image, List<VM>> im2vms) {
+			MtdvpSolution maxSolution, Map<Integer, VM> id2vmMap, Map<Image, List<VM>> im2vms) {
 		addToMapByHost(host1, im2vms);
 		addToMapByHost(host2, im2vms);
 		host1.reset();
@@ -173,67 +199,18 @@ public class LS {
 		removeFromMapByHost(host2, im2vms);
 	}
 
-	private class DiffCache {
-
-		private int[][] cache;
-		private boolean[][] valid;
-		private int length;
-
-		DiffCache(int size) {
-			this.cache = new int[size][size];
-			this.valid = new boolean[size][size];
-			this.length = size;
-		}
-
-		void updateCache(int i, int j, int value) {
-			if (i < 0 || j < 0 || i >= length || j >= length)
-				throw new RuntimeException("Invalid cache entry [i=" + i + ",j=" + j
-						+ "]");
-			cache[i][j] = value;
-			valid[i][j] = true;
-			cache[j][i] = value;
-			valid[j][i] = true;
-		}
-
-		void invalidateEntry(int i, int j) {
-			if (i < 0 || j < 0 || i >= length || j >= length)
-				throw new RuntimeException("Invalid cache entry [i=" + i + ",j=" + j
-						+ "]");
-			for (int r = 0; r < length; r++) {
-				cache[i][r] = 0;
-				valid[i][r] = false;
-				cache[j][r] = 0;
-				valid[j][r] = false;
-				cache[r][i] = 0;
-				valid[r][i] = false;
-				cache[r][j] = 0;
-				valid[r][j] = false;
-			}
-		}
-
-		boolean validEntry(int i, int j) {
-			if (i < 0 || j < 0 || i >= length || j >= length)
-				throw new RuntimeException("Invalid cache entry [i=" + i + ",j=" + j
-						+ "]");
-			return valid[i][j];
-		}
-
-		int getEntry(int i, int j) {
-			if (i < 0 || j < 0 || i >= length || j >= length)
-				throw new RuntimeException("Invalid cache entry [i=" + i + ",j=" + j
-						+ "]");
-			return cache[i][j];
-		}
-	}
-
 	private MtdvpSolution calcImprovement(Host host1, Host host2,
-			Map<Image, List<VM>> im2vms, int imageRedundancy) {
+			Map<Image, List<VM>> im2vms, int imageRedundancy, int goal) {
 
+		boolean CONSIDER_GOAL = true;
+		boolean CONSIDER_LIMIT = true;
+		int LIMIT = 10000;
+		
 		Set<Image> up2Kreplicas = new HashSet<Image>();
 		Set<Image> fixedImages = new HashSet<Image>();
 
-		extractUp2Kreplicas(host1.images(), host2.images(), up2Kreplicas,
-				fixedImages, imageRedundancy);
+		extractUp2Kreplicas(host1.images(), host2.images(), up2Kreplicas, fixedImages,
+				imageRedundancy);
 
 		MultiTDVP mtdvp = new MultiTDVP();
 		MtdvpSolution maxSol = null;
@@ -242,12 +219,12 @@ public class LS {
 		addToMapByHost(host2, im2vms);
 		int M = im2vms.keySet().size();
 
-		for (int i = 0; i < Math.pow(2, up2Kreplicas.size()); i++) {
+		for (int i = 0; i < Math.pow(2, up2Kreplicas.size()) && (!CONSIDER_LIMIT || i < LIMIT); i++) {
 			Host clone1 = new Host(1, host1.ramCapacity, host1.storageCapacity);
 			Host clone2 = new Host(2, host2.ramCapacity, host2.storageCapacity);
 
-			assignFixed(fixedImages, clone1);
-			assignFixed(fixedImages, clone2);
+			assignFixed(fixedImages,clone1);
+			assignFixed(fixedImages,clone2);
 
 			if (!recImgAssignment(clone1, clone2, i, up2Kreplicas.iterator())) {
 				clone1.reset();
@@ -270,10 +247,13 @@ public class LS {
 			clone1.reset();
 			clone2.reset();
 
-			MtdvpSolution sol = mtdvp.solve(vArr, cArr, vmSz, vmPr, imSz, imVmCount,
-					ids);
-			if (maxSol == null || maxSol.profit < sol.profit) {
+			MtdvpSolution sol = mtdvp.solve(vArr, cArr, vmSz, vmPr, imSz, imVmCount,ids);
+			if (sol != null && maxSol == null || maxSol.profit < sol.profit) {
 				maxSol = sol;
+				if (CONSIDER_GOAL && maxSol.profit < goal) {
+					logger.debug("Breaking early");
+					break;
+				}
 			}
 		}
 
@@ -326,8 +306,7 @@ public class LS {
 		return recImgAssignment(clone1, clone2, i / 2, iter);
 	}
 
-	private void extractUp2Kreplicas(Collection<Image> images,
-			Set<Image> up2Kreplicas, int k) {
+	private void extractUp2Kreplicas(Collection<Image> images, Set<Image> up2Kreplicas, int k) {
 		for (Image image : images) {
 			if (image.numReplicas() <= k) {
 				up2Kreplicas.add(image);
@@ -336,8 +315,7 @@ public class LS {
 	}
 
 	private void extractUp2Kreplicas(Collection<Image> imageCollection1,
-			Collection<Image> imageCollection2, Set<Image> up2Kreplicas,
-			Set<Image> fixedImages, int k) {
+			Collection<Image> imageCollection2, Set<Image> up2Kreplicas, Set<Image> fixedImages, int k) {
 
 		extractUp2Kreplicas(imageCollection1, up2Kreplicas, k);
 		extractUp2Kreplicas(imageCollection2, up2Kreplicas, k);
@@ -350,7 +328,7 @@ public class LS {
 					up2Kreplicas.remove(image);
 					fixedImages.add(image);
 				}
-			}
+			} 
 		}
 	}
 

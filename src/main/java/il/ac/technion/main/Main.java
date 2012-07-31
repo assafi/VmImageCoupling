@@ -10,7 +10,9 @@ import il.ac.technion.beans.Image;
 import il.ac.technion.beans.VM;
 import il.ac.technion.configuration.Configuration;
 import il.ac.technion.configuration.ConfigurationException;
+import il.ac.technion.heuristics.Greedy;
 import il.ac.technion.heuristics.LS;
+import il.ac.technion.heuristics.SimulationResults;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -21,10 +23,15 @@ import org.apache.log4j.Logger;
 
 public class Main {
 	
+	/**
+	 * 
+	 */
 	private static Logger logger = Logger.getLogger(Main.class);
+	private static final int NUM_ARGS = 1;
+	private static final String LINE_DELIM = System.getProperty("line.separator");
 	
 	public static void main(String[] args) {
-		if (args.length != 1) {
+		if (args.length != NUM_ARGS) {
 			logger.fatal("Invalid arguments");
 			return;
 		}
@@ -32,9 +39,10 @@ public class Main {
 		if (null == Main.class.getResource(args[0])) {
 			logger.fatal("Invalid file");
 			return;
-		}
+		} 
 		
 		String confFilePath = Main.class.getResource(args[0]).getPath();
+		
 		Configuration conf = null;
 		try {
 			conf = new Configuration(confFilePath);
@@ -45,22 +53,29 @@ public class Main {
 			logger.fatal(e.getMessage());
 			return;
 		}
-		List<Host> hosts = runAndAssign(conf);
 		
-		int numLocals = 0;
-		for (Host host : hosts) {
+		SimulationResults sr = runLsAndAssign(conf);
+		
+		for (Host host : sr.placement) {
 			logger.info(host.description());
-			numLocals += host.numVMs();
 		}
-		logger.info("Number of local VMs: " + numLocals);
+		logger.info(sr);
+		System.out.println(sr.toCsv());
 	}
 	
-	private static List<Host> runAndAssign(Configuration conf) {
+	private static SimulationResults runLsAndAssign(Configuration conf) {
 		List<Host> hosts = conf.getHosts();
 		Map<Image, List<VM>> im2vms = conf.getImageMap();
 		LS ls = new LS();
-		ls.solve(hosts, new ArrayList<Image>(im2vms.keySet()),im2vms, conf.getId2VmMap());
-		return hosts;
+		SimulationResults sr = ls.solve(hosts, new ArrayList<Image>(im2vms.keySet()),im2vms, conf.getId2VmMap(), conf.getImageRedundancy());
+		return sr;
 	}
-	
+
+	private static SimulationResults runGreedyAndAssign(Configuration conf) {
+		List<Host> hosts = conf.getHosts();
+		Map<Image, List<VM>> im2vms = conf.getImageMap();
+		Greedy greedy = new Greedy();
+		SimulationResults sr = greedy.solve(hosts, new ArrayList<Image>(im2vms.keySet()),im2vms, conf.getId2VmMap(), conf.getImageRedundancy());
+		return sr;
+	}
 }

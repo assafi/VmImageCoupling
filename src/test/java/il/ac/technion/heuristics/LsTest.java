@@ -52,9 +52,15 @@ public class LsTest {
 		runTest("rc2_extended.xml");
 	}
 	
+	@Ignore
 	@Test
 	public void rc2300sTest() throws IOException, ConfigurationException {
 		runTest("rc2_extended_300s.xml");
+	}
+
+	@Test
+	public void redundancyTest() throws IOException, ConfigurationException {
+		runTest("simple_ls_k2.xml");
 	}
 	
 	private void runTest(String fileName) throws IOException, ConfigurationException {
@@ -73,7 +79,7 @@ public class LsTest {
 	private List<Host> runAndAssign(Configuration conf) {
 		List<Host> hosts = conf.getHosts();
 		Map<Image, List<VM>> im2vms = conf.getImageMap();
-		ls.solve(hosts, new ArrayList<Image>(im2vms.keySet()),im2vms, conf.getId2VmMap());
+		ls.solve(hosts, new ArrayList<Image>(im2vms.keySet()),im2vms, conf.getId2VmMap(),conf.getImageRedundancy());
 		return hosts;
 	}
 }

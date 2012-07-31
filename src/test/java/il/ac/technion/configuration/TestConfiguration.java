@@ -8,6 +8,8 @@ package il.ac.technion.configuration;
 
 import java.io.IOException;
 
+import junit.framework.Assert;
+
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -26,5 +28,12 @@ public class TestConfiguration {
 		String simpleConfigFile = getClass().getResource("rc2_extended.xml").getPath();
 		Configuration conf = new Configuration(simpleConfigFile);
 		System.out.println(conf);
+	}
+	
+	@Test
+	public void testRedundency() throws IOException, ConfigurationException {
+		String simpleConfigFile = getClass().getResource("simple.xml").getPath();
+		Configuration conf = new Configuration(simpleConfigFile);
+		Assert.assertEquals(2, conf.getImageRedundancy());
 	}
 }
